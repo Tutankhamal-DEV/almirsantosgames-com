@@ -51,7 +51,7 @@ export async function generateMetadata({
                 {
                     url: "https://i.imgur.com/wDeIUtQ.gif",
                     width: 1200,
-                    height: 630,
+                    height: 1200,
                     alt: "Almir Santos Games",
                 },
             ],
