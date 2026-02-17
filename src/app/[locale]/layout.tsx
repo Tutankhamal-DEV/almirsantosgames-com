@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale, getMessages } from "next-intl/server
 import { routing } from "@/i18n/routing";
 
 import ScanlineOverlay from "@/components/ScanlineOverlay";
-import CanvasBackground from "@/components/CanvasBackground";
+import LazyCanvas from "@/components/LazyCanvas";
 import Navbar from "@/components/Navbar";
 import DevGuard from "@/components/DevGuard";
 import { LiveProvider } from "@/lib/LiveContext";
@@ -80,7 +80,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                         <DevGuard />
 
                         {/* Canvas Background - behind everything */}
-                        <CanvasBackground />
+                        <LazyCanvas />
 
                         {/* Navbar - below scanlines but above content */}
                         <Navbar />

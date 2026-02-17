@@ -90,8 +90,10 @@ export default function YouTubeLiveSection() {
                                 /* Thumbnail placeholder until IO triggers */
                                 <div className="w-full h-full relative bg-retro-black">
                                     <img
-                                        src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+                                        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
                                         alt={videoTitle}
+                                        width={1280}
+                                        height={720}
                                         className="w-full h-full object-cover opacity-60"
                                         loading="lazy"
                                     />

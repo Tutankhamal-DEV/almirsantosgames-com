@@ -35,8 +35,10 @@ function VideoCard({ video, index, isInView, watchLabel }: {
                 <div className="retro-border glass-shimmer rounded-lg overflow-hidden transition-all duration-300 group-hover:border-retro-gold group-hover:shadow-[0_0_20px_rgba(212,160,23,0.3)] relative z-[1000]">
                     <div className="aspect-video w-full relative">
                         <img
-                            src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                            src={`https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`}
                             alt={video.title}
+                            width={1280}
+                            height={720}
                             className="w-full h-full object-cover"
                             loading="lazy"
                         />
