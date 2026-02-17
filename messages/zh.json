@@ -16,10 +16,11 @@
         "subscribers": "订阅者",
         "views": "观看次数",
         "videos": "视频",
-        "yearsOfChannel": "频道 {years} 年",
-        "yearsIn": "🎂 {years} 年后",
-        "days": "{days} 天",
-        "daysExclaim": "{days} 天！"
+        "countDays": "天",
+        "countHours": "小时",
+        "countMin": "分",
+        "countSec": "秒",
+        "nextAnniversary": "{years}年频道"
     },
     "YouTubeLive": {
         "liveNow": "正在直播",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "二维码 — LivePix Almir Santos",
         "pixTitle": "直接 PIX",
         "pixDesc": "通过 Pix 直接捐赠，快速便捷地支持频道！",
-        "pixCta": "发送 PIX",
+        "pixCta": "复制 PIX 密钥",
         "pixImageAlt": "二维码 — 直接 Pix"
     },
     "Footer": {

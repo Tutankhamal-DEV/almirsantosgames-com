@@ -16,10 +16,11 @@
         "subscribers": "Aboneler",
         "views": "Görüntüleme",
         "videos": "Videolar",
-        "yearsOfChannel": "{years} yıllık kanal",
-        "yearsIn": "🎂 {years} yıl sonra",
-        "days": "{days} gün",
-        "daysExclaim": "{days} gün!"
+        "countDays": "gün",
+        "countHours": "saat",
+        "countMin": "dk",
+        "countSec": "sn",
+        "nextAnniversary": "{years} yıl kanal"
     },
     "YouTubeLive": {
         "liveNow": "ŞU AN CANLI",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR Kod — LivePix Almir Santos",
         "pixTitle": "DOĞRUDAN PIX",
         "pixDesc": "Kanalı hızlı ve kolay bir şekilde desteklemek için Pix ile doğrudan bağış yapın!",
-        "pixCta": "PIX GÖNDER",
+        "pixCta": "PIX ANAHTARINI KOPYALA",
         "pixImageAlt": "QR Kod — Doğrudan Pix"
     },
     "Footer": {

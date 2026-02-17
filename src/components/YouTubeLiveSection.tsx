@@ -18,7 +18,7 @@ export default function YouTubeLiveSection() {
     const videoId = isLive && liveVideoId ? liveVideoId : fallbackVideo?.id;
     const videoTitle = fallbackVideo?.title ?? '';
 
-    const embedDomain = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+
 
     // IO-gated iframe: only mount iframe when section nears viewport
     const [iframeReady, setIframeReady] = useState(false);
@@ -56,7 +56,7 @@ export default function YouTubeLiveSection() {
                     ) : (
                         <span className="inline-block w-3 h-3 rounded-full bg-white/30" />
                     )}
-                    <h2 className="section-title text-white">
+                    <h2 className="section-title hero-glitch text-white" data-text={isLive ? t('liveNow') : t('lastLive')}>
                         {isLive ? t('liveNow') : t('lastLive')}
                     </h2>
                 </motion.div>
@@ -71,7 +71,7 @@ export default function YouTubeLiveSection() {
                     {/* Video Player */}
                     <div
                         ref={iframeGateRef}
-                        className={`retro-border glass-shimmer rounded-lg overflow-hidden neon-glow relative z-[1000] ${isLive ? 'lg:flex-[3]' : 'w-full'}`}
+                        className={`retro-border glass-shimmer rounded-lg overflow-hidden relative z-[1000] ${isLive ? 'lg:flex-[3]' : 'w-full'}`}
                     >
                         <div className="aspect-video w-full">
                             {loading ? (
@@ -112,7 +112,7 @@ export default function YouTubeLiveSection() {
                         <div className="retro-border rounded-lg overflow-hidden relative z-[1000] lg:flex-[2]">
                             <div className="w-full h-full min-h-[400px] lg:min-h-0">
                                 <iframe
-                                    src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${embedDomain}`}
+                                    src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${typeof window !== 'undefined' ? window.location.hostname : 'localhost'}`}
                                     title="Chat ao vivo"
                                     className="w-full h-full border-0"
                                     style={{ minHeight: '400px' }}

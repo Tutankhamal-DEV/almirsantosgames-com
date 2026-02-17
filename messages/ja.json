@@ -16,10 +16,11 @@
         "subscribers": "登録者",
         "views": "再生回数",
         "videos": "動画",
-        "yearsOfChannel": "チャンネル {years} 年",
-        "yearsIn": "🎂 {years} 年後",
-        "days": "{days} 日",
-        "daysExclaim": "{days} 日！"
+        "countDays": "日",
+        "countHours": "時間",
+        "countMin": "分",
+        "countSec": "秒",
+        "nextAnniversary": "{years}年チャンネル"
     },
     "YouTubeLive": {
         "liveNow": "ライブ配信中",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QRコード — LivePix Almir Santos",
         "pixTitle": "ダイレクトPIX",
         "pixDesc": "Pixで直接寄付して、チャンネルを素早く簡単に応援しよう！",
-        "pixCta": "PIXを送る",
+        "pixCta": "PIXキーをコピー",
         "pixImageAlt": "QRコード — ダイレクトPix"
     },
     "Footer": {

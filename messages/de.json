@@ -16,10 +16,11 @@
         "subscribers": "Abonnenten",
         "views": "Aufrufe",
         "videos": "Videos",
-        "yearsOfChannel": "{years} Jahre Kanal",
-        "yearsIn": "🎂 {years} Jahre in",
-        "days": "{days} Tage",
-        "daysExclaim": "{days} Tage!"
+        "countDays": "Tage",
+        "countHours": "Std",
+        "countMin": "Min",
+        "countSec": "Sek",
+        "nextAnniversary": "{years} Jahre Kanal"
     },
     "YouTubeLive": {
         "liveNow": "JETZT LIVE",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR-Code — LivePix Almir Santos",
         "pixTitle": "DIREKTES PIX",
         "pixDesc": "Spende direkt über Pix, um den Kanal schnell und einfach zu unterstützen!",
-        "pixCta": "PIX SENDEN",
+        "pixCta": "PIX-SCHLÜSSEL KOPIEREN",
         "pixImageAlt": "QR-Code — Direktes Pix"
     },
     "Footer": {

@@ -16,10 +16,11 @@
         "subscribers": "Subscribers",
         "views": "Views",
         "videos": "Videos",
-        "yearsOfChannel": "{years} years on air",
-        "yearsIn": "🎂 {years} years in",
-        "days": "{days} days",
-        "daysExclaim": "{days} days!"
+        "countDays": "days",
+        "countHours": "hrs",
+        "countMin": "min",
+        "countSec": "sec",
+        "nextAnniversary": "{years} years on air"
     },
     "YouTubeLive": {
         "liveNow": "LIVE NOW",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR Code — LivePix Almir Santos",
         "pixTitle": "DIRECT PIX",
         "pixDesc": "Make a direct donation via Pix to support the channel quickly and easily!",
-        "pixCta": "SEND PIX",
+        "pixCta": "COPY PIX KEY",
         "pixImageAlt": "QR Code — Direct Pix"
     },
     "Footer": {

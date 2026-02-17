@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
-import { Home, Radio, Play, Heart, Globe } from 'lucide-react';
+import { Home, Radio, Play, Heart, Globe, Menu, X } from 'lucide-react';
 import { useLiveStatus } from '@/lib/LiveContext';
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
@@ -48,11 +48,17 @@ export default function Navbar() {
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
         setIsOpen(false);
+        setLangOpen(false);
+        // Delay scroll so menu close animation doesn't conflict
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                const navHeight = 48;
+                const top = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        }, 100);
     };
 
     const switchLocale = (newLocale: Locale) => {
@@ -61,14 +67,15 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-[998] bg-retro-black/80 backdrop-blur-md border-b border-retro-red/20">
+        <nav className="fixed top-0 left-0 right-0 z-[1001] bg-retro-black/80 backdrop-blur-md border-b border-retro-red/20">
             <div className="site-container">
                 <div className="flex items-center justify-between h-10 sm:h-12">
                     {/* Brand */}
                     <a
                         href="#hero"
                         onClick={(e) => handleClick(e, '#hero')}
-                        className="font-pixel text-xs sm:text-sm text-white hover:text-retro-gold transition-colors whitespace-nowrap flex items-center gap-2"
+                        className="font-pixel text-xs sm:text-sm text-white hover:text-retro-gold transition-colors whitespace-nowrap flex items-center gap-2 shrink-0"
+                        aria-label="Almir Santos Games"
                     >
                         <Image
                             src="/assets/almirsantos_hero_animation.avif"
@@ -78,27 +85,26 @@ export default function Navbar() {
                             className="w-6 h-6 sm:w-8 sm:h-8"
                             unoptimized
                         />
-                        ALMIR SANTOS GAMES
                     </a>
 
                     {/* Desktop Links + Language Switcher */}
-                    <div className="hidden sm:flex items-center gap-4">
+                    <div className="hidden sm:flex items-center gap-2 lg:gap-4 min-w-0">
                         {NAV_LINKS.map((link) => (
                             <a
                                 key={link.href}
                                 href={link.href}
                                 onClick={(e) => handleClick(e, link.href)}
-                                className={`font-mono text-sm transition-colors duration-300 flex items-center gap-1.5 whitespace-nowrap ${link.id === 'live' && isLive
+                                className={`font-mono text-xs lg:text-sm transition-colors duration-300 flex items-center gap-1 lg:gap-1.5 whitespace-nowrap ${link.id === 'live' && isLive
                                     ? 'text-red-500 hover:text-red-400'
                                     : 'text-white hover:text-red-500'
                                     }`}
                             >
                                 {link.id === 'live' && isLive ? (
                                     <span className="live-pulse-icon">
-                                        <link.icon size={16} />
+                                        <link.icon size={14} />
                                     </span>
                                 ) : (
-                                    <link.icon size={16} />
+                                    <link.icon size={14} />
                                 )}
                                 {link.label}
                             </a>
@@ -108,12 +114,12 @@ export default function Navbar() {
                         <div className="relative">
                             <button
                                 onClick={() => setLangOpen(!langOpen)}
-                                className="flex items-center gap-1.5 font-mono text-sm text-white/70 hover:text-white transition-colors px-2 py-1 rounded border border-white/10 hover:border-white/30"
+                                className="retro-btn-sm font-mono text-xs"
                                 aria-label="Language"
                             >
-                                <Globe size={14} />
+                                <Globe size={13} color="#fff" />
                                 <span>{LOCALE_META[locale].flag}</span>
-                                <span className="uppercase text-xs">{locale}</span>
+                                <span className="uppercase text-white font-bold tracking-wider" style={{ fontSize: '11px' }}>{locale}</span>
                             </button>
                             <AnimatePresence>
                                 {langOpen && (
@@ -145,39 +151,42 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Mobile: Language + Hamburger */}
-                    <div className="sm:hidden flex items-center gap-2">
-                        {/* Language button (mobile) */}
+                    {/* Mobile: Language + Menu — grid ensures equal size */}
+                    <div className="sm:hidden grid grid-cols-2 gap-2">
                         <button
                             onClick={() => { setLangOpen(!langOpen); setIsOpen(false); }}
-                            className="flex items-center gap-1 text-white/70 hover:text-white transition-colors p-1"
+                            className="retro-btn-sm font-mono text-xs justify-center"
                             aria-label="Language"
                         >
-                            <span className="text-sm">{LOCALE_META[locale].flag}</span>
+                            <Globe size={13} color="#fff" />
+                            <span>{LOCALE_META[locale].flag}</span>
+                            <span className="uppercase text-white font-bold tracking-wider" style={{ fontSize: '11px' }}>{locale}</span>
                         </button>
 
-                        {/* Hamburger */}
                         <button
                             onClick={() => { setIsOpen(!isOpen); setLangOpen(false); }}
-                            className="flex flex-col gap-1 p-2"
+                            className="retro-btn-sm font-mono text-xs justify-center"
                             aria-label="Menu"
                         >
-                            <span
-                                className={`block w-5 h-[2px] bg-white transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-[6px]' : ''
-                                    }`}
-                            />
-                            <span
-                                className={`block w-5 h-[2px] bg-white transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''
-                                    }`}
-                            />
-                            <span
-                                className={`block w-5 h-[2px] bg-white transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-[6px]' : ''
-                                    }`}
-                            />
+                            {isOpen ? <X size={16} color="#fff" /> : <Menu size={16} color="#fff" />}
+                            <span className="uppercase text-white font-bold tracking-wider" style={{ fontSize: '11px' }}>Menu</span>
                         </button>
                     </div>
                 </div>
             </div>
+
+            {/* Mobile backdrop — closes menu on tap outside */}
+            <AnimatePresence>
+                {(isOpen || langOpen) && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="sm:hidden fixed inset-0 bg-black/50 z-0 pointer-events-none"
+                        onClick={() => { setIsOpen(false); setLangOpen(false); }}
+                    />
+                )}
+            </AnimatePresence>
 
             {/* Mobile Nav Menu */}
             <AnimatePresence>
@@ -186,25 +195,25 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="sm:hidden bg-retro-black/95 border-t border-retro-red/20 overflow-hidden"
+                        className="sm:hidden bg-retro-black/95 border-t border-retro-red/20 overflow-hidden relative z-10"
                     >
-                        <div className="flex flex-col px-4 py-3 gap-3">
+                        <div className="flex flex-col items-center px-4 py-3 gap-1">
                             {NAV_LINKS.map((link) => (
                                 <a
                                     key={link.href}
                                     href={link.href}
                                     onClick={(e) => handleClick(e, link.href)}
-                                    className={`font-mono text-sm transition-colors py-2 border-b border-retro-red/10 flex items-center gap-2 ${link.id === 'live' && isLive
+                                    className={`font-mono text-base transition-colors py-3 border-b border-retro-red/10 flex items-center justify-center gap-3 w-full ${link.id === 'live' && isLive
                                         ? 'text-red-500 hover:text-red-400'
                                         : 'text-white hover:text-red-500'
                                         }`}
                                 >
                                     {link.id === 'live' && isLive ? (
                                         <span className="live-pulse-icon">
-                                            <link.icon size={14} />
+                                            <link.icon size={18} />
                                         </span>
                                     ) : (
-                                        <link.icon size={14} />
+                                        <link.icon size={18} />
                                     )}
                                     {link.label}
                                 </a>
@@ -221,19 +230,19 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="sm:hidden bg-retro-black/95 border-t border-retro-red/20 overflow-hidden"
+                        className="sm:hidden bg-retro-black/95 border-t border-retro-red/20 overflow-hidden relative z-10"
                     >
-                        <div className="grid grid-cols-2 px-4 py-3 gap-1 max-h-[300px] overflow-y-auto">
+                        <div className="grid grid-cols-2 px-4 py-3 gap-2 max-h-[300px] overflow-y-auto">
                             {locales.map((loc) => (
                                 <button
                                     key={loc}
                                     onClick={() => switchLocale(loc)}
-                                    className={`text-left px-3 py-2 font-mono text-sm flex items-center gap-2 rounded transition-colors ${loc === locale
+                                    className={`text-left px-3 py-3 font-mono text-sm flex items-center gap-2 rounded transition-colors ${loc === locale
                                         ? 'text-retro-gold bg-retro-gold/10'
                                         : 'text-white/70 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
-                                    <span>{LOCALE_META[loc].flag}</span>
+                                    <span className="text-lg">{LOCALE_META[loc].flag}</span>
                                     <span className="truncate">{LOCALE_META[loc].name}</span>
                                 </button>
                             ))}

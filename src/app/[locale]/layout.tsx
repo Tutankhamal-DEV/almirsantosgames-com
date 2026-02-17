@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -6,11 +6,18 @@ import { routing } from "@/i18n/routing";
 import ScanlineOverlay from "@/components/ScanlineOverlay";
 import CanvasBackground from "@/components/CanvasBackground";
 import Navbar from "@/components/Navbar";
+import DevGuard from "@/components/DevGuard";
 import { LiveProvider } from "@/lib/LiveContext";
 
 type Props = {
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
+};
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: "#d4a017",
 };
 
 export function generateStaticParams() {
@@ -69,6 +76,9 @@ export default async function LocaleLayout({ children, params }: Props) {
             <body className="bg-retro-black text-retro-chrome-light font-mono antialiased">
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <LiveProvider>
+                        {/* DevGuard - blocks right-click & DevTools */}
+                        <DevGuard />
+
                         {/* Canvas Background - behind everything */}
                         <CanvasBackground />
 

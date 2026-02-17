@@ -16,10 +16,11 @@
         "subscribers": "Подписчики",
         "views": "Просмотры",
         "videos": "Видео",
-        "yearsOfChannel": "{years} лет каналу",
-        "yearsIn": "🎂 {years} лет через",
-        "days": "{days} дней",
-        "daysExclaim": "{days} дней!"
+        "countDays": "дней",
+        "countHours": "час",
+        "countMin": "мин",
+        "countSec": "сек",
+        "nextAnniversary": "{years} лет каналу"
     },
     "YouTubeLive": {
         "liveNow": "СТРИМ СЕЙЧАС",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR-код — LivePix Алмир Сантос",
         "pixTitle": "ПРЯМОЙ PIX",
         "pixDesc": "Сделайте прямое пожертвование через Pix, чтобы быстро и легко поддержать канал!",
-        "pixCta": "ОТПРАВИТЬ PIX",
+        "pixCta": "СКОПИРОВАТЬ КЛЮЧ PIX",
         "pixImageAlt": "QR-код — Прямой Pix"
     },
     "Footer": {

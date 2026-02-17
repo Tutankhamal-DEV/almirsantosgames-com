@@ -16,10 +16,11 @@
         "subscribers": "Abonnees",
         "views": "Weergaven",
         "videos": "Video's",
-        "yearsOfChannel": "{years} jaar kanaal",
-        "yearsIn": "🎂 {years} jaar over",
-        "days": "{days} dagen",
-        "daysExclaim": "{days} dagen!"
+        "countDays": "dagen",
+        "countHours": "uur",
+        "countMin": "min",
+        "countSec": "sec",
+        "nextAnniversary": "{years} jaar kanaal"
     },
     "YouTubeLive": {
         "liveNow": "NU LIVE",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR-code — LivePix Almir Santos",
         "pixTitle": "DIRECTE PIX",
         "pixDesc": "Doe een directe donatie via Pix om het kanaal snel en gemakkelijk te steunen!",
-        "pixCta": "PIX STUREN",
+        "pixCta": "PIX SLEUTEL KOPIËREN",
         "pixImageAlt": "QR-code — Directe Pix"
     },
     "Footer": {

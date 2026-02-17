@@ -16,10 +16,11 @@
         "subscribers": "구독자",
         "views": "조회수",
         "videos": "영상",
-        "yearsOfChannel": "채널 {years}년",
-        "yearsIn": "🎂 {years}년 후",
-        "days": "{days}일",
-        "daysExclaim": "{days}일!"
+        "countDays": "일",
+        "countHours": "시간",
+        "countMin": "분",
+        "countSec": "초",
+        "nextAnniversary": "{years}년 채널"
     },
     "YouTubeLive": {
         "liveNow": "실시간 방송",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR 코드 — LivePix Almir Santos",
         "pixTitle": "다이렉트 PIX",
         "pixDesc": "Pix를 통해 직접 후원하여 빠르고 쉽게 채널을 지원하세요!",
-        "pixCta": "PIX 보내기",
+        "pixCta": "PIX 키 복사",
         "pixImageAlt": "QR 코드 — 다이렉트 Pix"
     },
     "Footer": {

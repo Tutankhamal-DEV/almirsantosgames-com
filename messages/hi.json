@@ -16,10 +16,11 @@
         "subscribers": "सदस्य",
         "views": "व्यूज़",
         "videos": "वीडियो",
-        "yearsOfChannel": "चैनल के {years} साल",
-        "yearsIn": "🎂 {years} साल में",
-        "days": "{days} दिन",
-        "daysExclaim": "{days} दिन!"
+        "countDays": "दिन",
+        "countHours": "घंटे",
+        "countMin": "मिनट",
+        "countSec": "सेकंड",
+        "nextAnniversary": "{years} साल चैनल"
     },
     "YouTubeLive": {
         "liveNow": "अभी लाइव",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "QR कोड — LivePix Almir Santos",
         "pixTitle": "डायरेक्ट PIX",
         "pixDesc": "Pix के माध्यम से सीधे दान करें और चैनल को जल्दी और आसानी से सहायता दें!",
-        "pixCta": "PIX भेजें",
+        "pixCta": "PIX कुंजी कॉपी करें",
         "pixImageAlt": "QR कोड — डायरेक्ट Pix"
     },
     "Footer": {

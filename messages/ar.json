@@ -16,10 +16,11 @@
         "subscribers": "المشتركون",
         "views": "المشاهدات",
         "videos": "الفيديوهات",
-        "yearsOfChannel": "{years} سنوات للقناة",
-        "yearsIn": "🎂 {years} سنوات خلال",
-        "days": "{days} يوم",
-        "daysExclaim": "{days} يوم!"
+        "countDays": "أيام",
+        "countHours": "ساعة",
+        "countMin": "دقيقة",
+        "countSec": "ثانية",
+        "nextAnniversary": "{years} سنوات القناة"
     },
     "YouTubeLive": {
         "liveNow": "مباشر الآن",
@@ -47,7 +48,7 @@
         "livepixImageAlt": "رمز QR — LivePix ألمير سانتوس",
         "pixTitle": "PIX مباشر",
         "pixDesc": "تبرع مباشرة عبر Pix لدعم القناة بسرعة وسهولة!",
-        "pixCta": "إرسال PIX",
+        "pixCta": "نسخ مفتاح PIX",
         "pixImageAlt": "رمز QR — Pix مباشر"
     },
     "Footer": {

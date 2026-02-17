@@ -1243,10 +1243,27 @@ function renderRacing(ctx: CanvasRenderingContext2D, w: number, h: number, t: nu
 
 
 
+/** Home positions for soccer players – single source of truth */
+function getSoccerHomes(w: number, h: number, M: number) {
+    const homesA = [
+        [M + 30, h * 0.5],
+        [w * 0.18, h * 0.2], [w * 0.18, h * 0.4], [w * 0.18, h * 0.6], [w * 0.18, h * 0.8],
+        [w * 0.35, h * 0.25], [w * 0.35, h * 0.5], [w * 0.35, h * 0.75],
+        [w * 0.46, h * 0.2], [w * 0.46, h * 0.5], [w * 0.46, h * 0.8],
+    ];
+    const homesB = [
+        [w - M - 30, h * 0.5],
+        [w * 0.82, h * 0.2], [w * 0.82, h * 0.4], [w * 0.82, h * 0.6], [w * 0.82, h * 0.8],
+        [w * 0.65, h * 0.25], [w * 0.65, h * 0.5], [w * 0.65, h * 0.75],
+        [w * 0.54, h * 0.2], [w * 0.54, h * 0.5], [w * 0.54, h * 0.8],
+    ];
+    return { homesA, homesB };
+}
+
 // ══════════════════════════════════════════
 //  SPORTS – Soccer/football field top-down
 // ══════════════════════════════════════════
-function renderSports(ctx: CanvasRenderingContext2D, w: number, h: number, t: number) {
+function renderSports(ctx: CanvasRenderingContext2D, w: number, h: number, _t: number) {
     const M = 40; // field margin
     const dt = 1 / 60;
     const goalW = 80, goalH = h * 0.3;
@@ -1255,19 +1272,7 @@ function renderSports(ctx: CanvasRenderingContext2D, w: number, h: number, t: nu
     // ── INIT ──
     if (!soccerState.inited) {
         B.x = w / 2; B.y = h / 2; B.vx = 80; B.vy = 30;
-        // roles: 0=GK, 1-4=DEF, 5-7=MID, 8-10=FWD
-        const homesA = [
-            [M + 30, h * 0.5],
-            [w * 0.18, h * 0.2], [w * 0.18, h * 0.4], [w * 0.18, h * 0.6], [w * 0.18, h * 0.8],
-            [w * 0.35, h * 0.25], [w * 0.35, h * 0.5], [w * 0.35, h * 0.75],
-            [w * 0.46, h * 0.2], [w * 0.46, h * 0.5], [w * 0.46, h * 0.8],
-        ];
-        const homesB = [
-            [w - M - 30, h * 0.5],
-            [w * 0.82, h * 0.2], [w * 0.82, h * 0.4], [w * 0.82, h * 0.6], [w * 0.82, h * 0.8],
-            [w * 0.65, h * 0.25], [w * 0.65, h * 0.5], [w * 0.65, h * 0.75],
-            [w * 0.54, h * 0.2], [w * 0.54, h * 0.5], [w * 0.54, h * 0.8],
-        ];
+        const { homesA, homesB } = getSoccerHomes(w, h, M);
         soccerState.players = [];
         for (let i = 0; i < 11; i++) soccerState.players.push({ x: homesA[i][0], y: homesA[i][1], team: 0, role: i });
         for (let i = 0; i < 11; i++) soccerState.players.push({ x: homesB[i][0], y: homesB[i][1], team: 1, role: i });
@@ -1298,8 +1303,7 @@ function renderSports(ctx: CanvasRenderingContext2D, w: number, h: number, t: nu
             B.vx = (Math.random() > 0.5 ? 1 : -1) * (60 + Math.random() * 40);
             B.vy = (Math.random() - 0.5) * 60;
             // Reset players to home
-            const homesA = [[M + 30, h * .5], [w * .18, h * .2], [w * .18, h * .4], [w * .18, h * .6], [w * .18, h * .8], [w * .35, h * .25], [w * .35, h * .5], [w * .35, h * .75], [w * .46, h * .2], [w * .46, h * .5], [w * .46, h * .8]];
-            const homesB = [[w - M - 30, h * .5], [w * .82, h * .2], [w * .82, h * .4], [w * .82, h * .6], [w * .82, h * .8], [w * .65, h * .25], [w * .65, h * .5], [w * .65, h * .75], [w * .54, h * .2], [w * .54, h * .5], [w * .54, h * .8]];
+            const { homesA, homesB } = getSoccerHomes(w, h, M);
             for (let i = 0; i < 22; i++) {
                 const home = i < 11 ? homesA[i] : homesB[i - 11];
                 soccerState.players[i].x = home[0];
@@ -1324,9 +1328,7 @@ function renderSports(ctx: CanvasRenderingContext2D, w: number, h: number, t: nu
     if (B.x > w - M - 5) { B.x = w - M - 5; B.vx = -Math.abs(B.vx) * 0.7; }
 
     // ── PLAYER AI & MOVEMENT ──
-    // Home positions (recalculated for current canvas size)
-    const homesA = [[M + 30, h * .5], [w * .18, h * .2], [w * .18, h * .4], [w * .18, h * .6], [w * .18, h * .8], [w * .35, h * .25], [w * .35, h * .5], [w * .35, h * .75], [w * .46, h * .2], [w * .46, h * .5], [w * .46, h * .8]];
-    const homesB = [[w - M - 30, h * .5], [w * .82, h * .2], [w * .82, h * .4], [w * .82, h * .6], [w * .82, h * .8], [w * .65, h * .25], [w * .65, h * .5], [w * .65, h * .75], [w * .54, h * .2], [w * .54, h * .5], [w * .54, h * .8]];
+    const { homesA, homesB } = getSoccerHomes(w, h, M);
 
     // Find closest outfield player per team
     let runA = -1, runAD = Infinity, runB = -1, runBD = Infinity;
