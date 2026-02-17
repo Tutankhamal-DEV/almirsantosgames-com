@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Het gamingkanaal van Almir Santos — Streams, video's en nog veel meer!"
+    },
+    "Navbar": {
+        "home": "Home",
+        "live": "Live",
+        "videos": "Video's",
+        "support": "Steun"
+    },
+    "Hero": {
+        "scroll": "Scrollen"
+    },
+    "ChannelStats": {
+        "subscribers": "Abonnees",
+        "views": "Weergaven",
+        "videos": "Video's",
+        "yearsOfChannel": "{years} jaar kanaal",
+        "yearsIn": "🎂 {years} jaar over",
+        "days": "{days} dagen",
+        "daysExclaim": "{days} dagen!"
+    },
+    "YouTubeLive": {
+        "liveNow": "NU LIVE",
+        "lastLive": "LAATSTE STREAM",
+        "loading": "Laden...",
+        "loadingPlayer": "Speler laden...",
+        "noVideo": "Geen video beschikbaar",
+        "visitChannel": "KANAAL BEZOEKEN"
+    },
+    "LatestVideos": {
+        "title": "NIEUWSTE VIDEO'S",
+        "loading": "Video's laden...",
+        "watch": "{title} bekijken"
+    },
+    "LivePix": {
+        "title": "STEUN HET KANAAL",
+        "subtitle": "Kies een manier om het kanaal te helpen groeien!",
+        "memberTitle": "WORD LID",
+        "memberDesc": "Word lid van het kanaal op YouTube en krijg toegang tot exclusieve emotes en speciale voordelen!",
+        "memberCta": "LID WORDEN",
+        "memberImageAlt": "QR-code — Word lid van het kanaal",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Stuur je bericht en steun rechtstreeks tijdens de streams! Je bijdrage verschijnt in realtime op het scherm.",
+        "livepixCta": "STEUNEN VIA LIVEPIX",
+        "livepixImageAlt": "QR-code — LivePix Almir Santos",
+        "pixTitle": "DIRECTE PIX",
+        "pixDesc": "Doe een directe donatie via Pix om het kanaal snel en gemakkelijk te steunen!",
+        "pixCta": "PIX STUREN",
+        "pixImageAlt": "QR-code — Directe Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Alle rechten voorbehouden",
+        "developedBy": "Developed by:"
+    }
+}

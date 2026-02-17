@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Kanał gamingowy Almir Santos — Streamy, filmy i wiele więcej!"
+    },
+    "Navbar": {
+        "home": "Start",
+        "live": "Na Żywo",
+        "videos": "Filmy",
+        "support": "Wesprzyj"
+    },
+    "Hero": {
+        "scroll": "Przewiń"
+    },
+    "ChannelStats": {
+        "subscribers": "Subskrybenci",
+        "views": "Wyświetlenia",
+        "videos": "Filmy",
+        "yearsOfChannel": "{years} lat kanału",
+        "yearsIn": "🎂 {years} lat za",
+        "days": "{days} dni",
+        "daysExclaim": "{days} dni!"
+    },
+    "YouTubeLive": {
+        "liveNow": "NA ŻYWO",
+        "lastLive": "OSTATNI STREAM",
+        "loading": "Ładowanie...",
+        "loadingPlayer": "Ładowanie odtwarzacza...",
+        "noVideo": "Brak dostępnego wideo",
+        "visitChannel": "ODWIEDŹ KANAŁ"
+    },
+    "LatestVideos": {
+        "title": "NAJNOWSZE FILMY",
+        "loading": "Ładowanie filmów...",
+        "watch": "Obejrzyj {title}"
+    },
+    "LivePix": {
+        "title": "WESPRZYJ KANAŁ",
+        "subtitle": "Wybierz sposób, aby pomóc kanałowi dalej rosnąć!",
+        "memberTitle": "ZOSTAŃ CZŁONKIEM",
+        "memberDesc": "Zostań członkiem kanału na YouTube i uzyskaj dostęp do ekskluzywnych emotikon i specjalnych korzyści!",
+        "memberCta": "DOŁĄCZ",
+        "memberImageAlt": "Kod QR — Zostań członkiem kanału",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Wyślij wiadomość i wesprzyj bezpośrednio podczas streamów! Twój wkład pojawia się na ekranie w czasie rzeczywistym.",
+        "livepixCta": "WESPRZYJ PRZEZ LIVEPIX",
+        "livepixImageAlt": "Kod QR — LivePix Almir Santos",
+        "pixTitle": "BEZPOŚREDNI PIX",
+        "pixDesc": "Wpłać darowiznę bezpośrednio przez Pix, aby szybko i łatwo wesprzeć kanał!",
+        "pixCta": "WYŚLIJ PIX",
+        "pixImageAlt": "Kod QR — Bezpośredni Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Wszelkie prawa zastrzeżone",
+        "developedBy": "Developed by:"
+    }
+}

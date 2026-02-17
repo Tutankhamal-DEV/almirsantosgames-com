@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Canal de juegos de Almir Santos — Lives, videos y mucho más!"
+    },
+    "Navbar": {
+        "home": "Inicio",
+        "live": "En Vivo",
+        "videos": "Videos",
+        "support": "Apoya"
+    },
+    "Hero": {
+        "scroll": "Scroll"
+    },
+    "ChannelStats": {
+        "subscribers": "Suscriptores",
+        "views": "Vistas",
+        "videos": "Videos",
+        "yearsOfChannel": "{years} años de canal",
+        "yearsIn": "🎂 {years} años en",
+        "days": "{days} días",
+        "daysExclaim": "¡{days} días!"
+    },
+    "YouTubeLive": {
+        "liveNow": "EN VIVO AHORA",
+        "lastLive": "ÚLTIMO STREAM",
+        "loading": "Cargando...",
+        "loadingPlayer": "Cargando reproductor...",
+        "noVideo": "Ningún video disponible",
+        "visitChannel": "VISITAR CANAL"
+    },
+    "LatestVideos": {
+        "title": "ÚLTIMOS VIDEOS",
+        "loading": "Cargando videos...",
+        "watch": "Ver {title}"
+    },
+    "LivePix": {
+        "title": "APOYA EL CANAL",
+        "subtitle": "¡Elige una forma de ayudar al canal a seguir creciendo!",
+        "memberTitle": "SÉ MIEMBRO",
+        "memberDesc": "¡Conviértete en miembro del canal en YouTube y obtén acceso a emotes exclusivos y beneficios especiales!",
+        "memberCta": "SER MIEMBRO",
+        "memberImageAlt": "QR Code — Sé Miembro del canal",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "¡Envía tu mensaje y apoya directamente durante las lives! Tu contribución aparece en tiempo real en pantalla.",
+        "livepixCta": "APOYAR VÍA LIVEPIX",
+        "livepixImageAlt": "QR Code — LivePix Almir Santos",
+        "pixTitle": "PIX DIRECTO",
+        "pixDesc": "¡Haz una donación directa vía Pix para apoyar el canal de forma rápida y fácil!",
+        "pixCta": "ENVIAR PIX",
+        "pixImageAlt": "QR Code — Pix Directo"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Todos los derechos reservados",
+        "developedBy": "Developed by:"
+    }
+}

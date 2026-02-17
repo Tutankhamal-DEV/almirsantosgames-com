@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos ゲームチャンネル — ライブ配信、動画、もっとたくさん！"
+    },
+    "Navbar": {
+        "home": "ホーム",
+        "live": "ライブ",
+        "videos": "動画",
+        "support": "応援"
+    },
+    "Hero": {
+        "scroll": "スクロール"
+    },
+    "ChannelStats": {
+        "subscribers": "登録者",
+        "views": "再生回数",
+        "videos": "動画",
+        "yearsOfChannel": "チャンネル {years} 年",
+        "yearsIn": "🎂 {years} 年後",
+        "days": "{days} 日",
+        "daysExclaim": "{days} 日！"
+    },
+    "YouTubeLive": {
+        "liveNow": "ライブ配信中",
+        "lastLive": "最新の配信",
+        "loading": "読み込み中...",
+        "loadingPlayer": "プレーヤー読み込み中...",
+        "noVideo": "動画がありません",
+        "visitChannel": "チャンネルへ"
+    },
+    "LatestVideos": {
+        "title": "最新動画",
+        "loading": "動画を読み込み中...",
+        "watch": "{title} を見る"
+    },
+    "LivePix": {
+        "title": "チャンネルを応援",
+        "subtitle": "チャンネルの成長を助ける方法を選んでください！",
+        "memberTitle": "メンバーになる",
+        "memberDesc": "YouTubeのチャンネルメンバーになって、限定スタンプや特別な特典を手に入れよう！",
+        "memberCta": "メンバー加入",
+        "memberImageAlt": "QRコード — チャンネルメンバーになる",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "配信中にメッセージを送って直接応援！あなたの貢献がリアルタイムで画面に表示されます。",
+        "livepixCta": "LIVEPIXで応援",
+        "livepixImageAlt": "QRコード — LivePix Almir Santos",
+        "pixTitle": "ダイレクトPIX",
+        "pixDesc": "Pixで直接寄付して、チャンネルを素早く簡単に応援しよう！",
+        "pixCta": "PIXを送る",
+        "pixImageAlt": "QRコード — ダイレクトPix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — 全著作権所有",
+        "developedBy": "Developed by:"
+    }
+}

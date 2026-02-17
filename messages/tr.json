@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos oyun kanalı — Canlı yayınlar, videolar ve çok daha fazlası!"
+    },
+    "Navbar": {
+        "home": "Ana Sayfa",
+        "live": "Canlı",
+        "videos": "Videolar",
+        "support": "Destek"
+    },
+    "Hero": {
+        "scroll": "Kaydır"
+    },
+    "ChannelStats": {
+        "subscribers": "Aboneler",
+        "views": "Görüntüleme",
+        "videos": "Videolar",
+        "yearsOfChannel": "{years} yıllık kanal",
+        "yearsIn": "🎂 {years} yıl sonra",
+        "days": "{days} gün",
+        "daysExclaim": "{days} gün!"
+    },
+    "YouTubeLive": {
+        "liveNow": "ŞU AN CANLI",
+        "lastLive": "SON YAYIN",
+        "loading": "Yükleniyor...",
+        "loadingPlayer": "Oynatıcı yükleniyor...",
+        "noVideo": "Mevcut video yok",
+        "visitChannel": "KANALI ZİYARET ET"
+    },
+    "LatestVideos": {
+        "title": "SON VİDEOLAR",
+        "loading": "Videolar yükleniyor...",
+        "watch": "{title} izle"
+    },
+    "LivePix": {
+        "title": "KANALI DESTEKLE",
+        "subtitle": "Kanalın büyümeye devam etmesine yardımcı olmanın bir yolunu seçin!",
+        "memberTitle": "ÜYE OL",
+        "memberDesc": "YouTube'da kanal üyesi olun ve özel ifadelere ve özel ayrıcalıklara erişim kazanın!",
+        "memberCta": "ÜYE OL",
+        "memberImageAlt": "QR Kod — Kanal Üyesi Ol",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Canlı yayın sırasında mesajınızı gönderin ve doğrudan destek olun! Katkınız ekranda gerçek zamanlı görünür.",
+        "livepixCta": "LIVEPIX İLE DESTEKLE",
+        "livepixImageAlt": "QR Kod — LivePix Almir Santos",
+        "pixTitle": "DOĞRUDAN PIX",
+        "pixDesc": "Kanalı hızlı ve kolay bir şekilde desteklemek için Pix ile doğrudan bağış yapın!",
+        "pixCta": "PIX GÖNDER",
+        "pixImageAlt": "QR Kod — Doğrudan Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Tüm hakları saklıdır",
+        "developedBy": "Developed by:"
+    }
+}

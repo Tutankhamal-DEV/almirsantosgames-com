@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos 游戏频道 — 直播、视频，精彩不断！"
+    },
+    "Navbar": {
+        "home": "首页",
+        "live": "直播",
+        "videos": "视频",
+        "support": "支持"
+    },
+    "Hero": {
+        "scroll": "滚动"
+    },
+    "ChannelStats": {
+        "subscribers": "订阅者",
+        "views": "观看次数",
+        "videos": "视频",
+        "yearsOfChannel": "频道 {years} 年",
+        "yearsIn": "🎂 {years} 年后",
+        "days": "{days} 天",
+        "daysExclaim": "{days} 天！"
+    },
+    "YouTubeLive": {
+        "liveNow": "正在直播",
+        "lastLive": "最近直播",
+        "loading": "加载中...",
+        "loadingPlayer": "播放器加载中...",
+        "noVideo": "暂无视频",
+        "visitChannel": "访问频道"
+    },
+    "LatestVideos": {
+        "title": "最新视频",
+        "loading": "视频加载中...",
+        "watch": "观看 {title}"
+    },
+    "LivePix": {
+        "title": "支持频道",
+        "subtitle": "选择一种方式帮助频道持续成长！",
+        "memberTitle": "成为会员",
+        "memberDesc": "成为 YouTube 频道会员，获得专属表情和特别福利！",
+        "memberCta": "加入会员",
+        "memberImageAlt": "二维码 — 成为频道会员",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "在直播期间发送消息并直接支持！您的贡献会实时显示在屏幕上。",
+        "livepixCta": "通过 LIVEPIX 支持",
+        "livepixImageAlt": "二维码 — LivePix Almir Santos",
+        "pixTitle": "直接 PIX",
+        "pixDesc": "通过 Pix 直接捐赠，快速便捷地支持频道！",
+        "pixCta": "发送 PIX",
+        "pixImageAlt": "二维码 — 直接 Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — 保留所有权利",
+        "developedBy": "Developed by:"
+    }
+}

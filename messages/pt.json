@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Canal de games do Almir Santos — Lives, vídeos, e muito mais!"
+    },
+    "Navbar": {
+        "home": "Início",
+        "live": "Ao Vivo",
+        "videos": "Vídeos",
+        "support": "Apoie"
+    },
+    "Hero": {
+        "scroll": "Scroll"
+    },
+    "ChannelStats": {
+        "subscribers": "Inscritos",
+        "views": "Visualizações",
+        "videos": "Vídeos",
+        "yearsOfChannel": "{years} anos de canal",
+        "yearsIn": "🎂 {years} anos em",
+        "days": "{days} dias",
+        "daysExclaim": "{days} dias!"
+    },
+    "YouTubeLive": {
+        "liveNow": "AO VIVO AGORA",
+        "lastLive": "ÚLTIMA LIVE",
+        "loading": "Carregando...",
+        "loadingPlayer": "Carregando player...",
+        "noVideo": "Nenhum vídeo disponível",
+        "visitChannel": "VISITAR CANAL"
+    },
+    "LatestVideos": {
+        "title": "ÚLTIMOS VÍDEOS",
+        "loading": "Carregando vídeos...",
+        "watch": "Assistir {title}"
+    },
+    "LivePix": {
+        "title": "APOIE O CANAL",
+        "subtitle": "Escolha uma forma de ajudar o canal a continuar crescendo!",
+        "memberTitle": "SEJA MEMBRO",
+        "memberDesc": "Torne-se membro do canal no YouTube e ganhe acesso a emotes exclusivos e benefícios especiais!",
+        "memberCta": "SER MEMBRO",
+        "memberImageAlt": "QR Code — Seja Membro do canal",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Mande sua mensagem e apoie diretamente durante as lives! Sua contribuição aparece em tempo real na tela.",
+        "livepixCta": "APOIAR VIA LIVEPIX",
+        "livepixImageAlt": "QR Code — LivePix Almir Santos",
+        "pixTitle": "PIX DIRETO",
+        "pixDesc": "Faça uma doação direta via Pix para apoiar o canal de forma rápida e fácil!",
+        "pixCta": "ENVIAR PIX",
+        "pixImageAlt": "QR Code — Pix Direto"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Todos os direitos reservados",
+        "developedBy": "Developed by:"
+    }
+}

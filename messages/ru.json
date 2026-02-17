@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Игровой канал Алмир Сантос — Стримы, видео и многое другое!"
+    },
+    "Navbar": {
+        "home": "Главная",
+        "live": "Стрим",
+        "videos": "Видео",
+        "support": "Поддержка"
+    },
+    "Hero": {
+        "scroll": "Листать"
+    },
+    "ChannelStats": {
+        "subscribers": "Подписчики",
+        "views": "Просмотры",
+        "videos": "Видео",
+        "yearsOfChannel": "{years} лет каналу",
+        "yearsIn": "🎂 {years} лет через",
+        "days": "{days} дней",
+        "daysExclaim": "{days} дней!"
+    },
+    "YouTubeLive": {
+        "liveNow": "СТРИМ СЕЙЧАС",
+        "lastLive": "ПОСЛЕДНИЙ СТРИМ",
+        "loading": "Загрузка...",
+        "loadingPlayer": "Загрузка плеера...",
+        "noVideo": "Нет доступного видео",
+        "visitChannel": "ПОСЕТИТЬ КАНАЛ"
+    },
+    "LatestVideos": {
+        "title": "ПОСЛЕДНИЕ ВИДЕО",
+        "loading": "Загрузка видео...",
+        "watch": "Смотреть {title}"
+    },
+    "LivePix": {
+        "title": "ПОДДЕРЖИТЕ КАНАЛ",
+        "subtitle": "Выберите способ помочь каналу расти!",
+        "memberTitle": "СТАТЬ УЧАСТНИКОМ",
+        "memberDesc": "Станьте участником канала на YouTube и получите доступ к эксклюзивным эмодзи и особым привилегиям!",
+        "memberCta": "СТАТЬ УЧАСТНИКОМ",
+        "memberImageAlt": "QR-код — Стать участником канала",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Отправьте сообщение и поддержите напрямую во время стримов! Ваш вклад появляется на экране в реальном времени.",
+        "livepixCta": "ПОДДЕРЖАТЬ ЧЕРЕЗ LIVEPIX",
+        "livepixImageAlt": "QR-код — LivePix Алмир Сантос",
+        "pixTitle": "ПРЯМОЙ PIX",
+        "pixDesc": "Сделайте прямое пожертвование через Pix, чтобы быстро и легко поддержать канал!",
+        "pixCta": "ОТПРАВИТЬ PIX",
+        "pixImageAlt": "QR-код — Прямой Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Все права защищены",
+        "developedBy": "Developed by:"
+    }
+}

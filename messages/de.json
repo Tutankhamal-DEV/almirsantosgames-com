@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos Gaming-Kanal — Streams, Videos und vieles mehr!"
+    },
+    "Navbar": {
+        "home": "Start",
+        "live": "Live",
+        "videos": "Videos",
+        "support": "Unterstützen"
+    },
+    "Hero": {
+        "scroll": "Scrollen"
+    },
+    "ChannelStats": {
+        "subscribers": "Abonnenten",
+        "views": "Aufrufe",
+        "videos": "Videos",
+        "yearsOfChannel": "{years} Jahre Kanal",
+        "yearsIn": "🎂 {years} Jahre in",
+        "days": "{days} Tage",
+        "daysExclaim": "{days} Tage!"
+    },
+    "YouTubeLive": {
+        "liveNow": "JETZT LIVE",
+        "lastLive": "LETZTER STREAM",
+        "loading": "Laden...",
+        "loadingPlayer": "Player wird geladen...",
+        "noVideo": "Kein Video verfügbar",
+        "visitChannel": "KANAL BESUCHEN"
+    },
+    "LatestVideos": {
+        "title": "NEUESTE VIDEOS",
+        "loading": "Videos werden geladen...",
+        "watch": "{title} ansehen"
+    },
+    "LivePix": {
+        "title": "UNTERSTÜTZE DEN KANAL",
+        "subtitle": "Wähle eine Möglichkeit, dem Kanal beim Wachsen zu helfen!",
+        "memberTitle": "MITGLIED WERDEN",
+        "memberDesc": "Werde Kanalmitglied auf YouTube und erhalte Zugang zu exklusiven Emotes und besonderen Vorteilen!",
+        "memberCta": "MITGLIED WERDEN",
+        "memberImageAlt": "QR-Code — Kanalmitglied werden",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Sende deine Nachricht und unterstütze direkt während der Streams! Dein Beitrag erscheint in Echtzeit auf dem Bildschirm.",
+        "livepixCta": "VIA LIVEPIX UNTERSTÜTZEN",
+        "livepixImageAlt": "QR-Code — LivePix Almir Santos",
+        "pixTitle": "DIREKTES PIX",
+        "pixDesc": "Spende direkt über Pix, um den Kanal schnell und einfach zu unterstützen!",
+        "pixCta": "PIX SENDEN",
+        "pixImageAlt": "QR-Code — Direktes Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Alle Rechte vorbehalten",
+        "developedBy": "Developed by:"
+    }
+}

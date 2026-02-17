@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "قناة ألعاب ألمير سانتوس — بثوث مباشرة، فيديوهات، والمزيد!"
+    },
+    "Navbar": {
+        "home": "الرئيسية",
+        "live": "مباشر",
+        "videos": "فيديوهات",
+        "support": "ادعم"
+    },
+    "Hero": {
+        "scroll": "مرر"
+    },
+    "ChannelStats": {
+        "subscribers": "المشتركون",
+        "views": "المشاهدات",
+        "videos": "الفيديوهات",
+        "yearsOfChannel": "{years} سنوات للقناة",
+        "yearsIn": "🎂 {years} سنوات خلال",
+        "days": "{days} يوم",
+        "daysExclaim": "{days} يوم!"
+    },
+    "YouTubeLive": {
+        "liveNow": "مباشر الآن",
+        "lastLive": "آخر بث",
+        "loading": "جاري التحميل...",
+        "loadingPlayer": "جاري تحميل المشغل...",
+        "noVideo": "لا يوجد فيديو متاح",
+        "visitChannel": "زيارة القناة"
+    },
+    "LatestVideos": {
+        "title": "أحدث الفيديوهات",
+        "loading": "جاري تحميل الفيديوهات...",
+        "watch": "شاهد {title}"
+    },
+    "LivePix": {
+        "title": "ادعم القناة",
+        "subtitle": "اختر طريقة لمساعدة القناة على الاستمرار في النمو!",
+        "memberTitle": "كن عضواً",
+        "memberDesc": "انضم كعضو في القناة على يوتيوب واحصل على رموز تعبيرية حصرية ومزايا خاصة!",
+        "memberCta": "انضم الآن",
+        "memberImageAlt": "رمز QR — كن عضواً في القناة",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "أرسل رسالتك وادعم مباشرة أثناء البث! مساهمتك تظهر على الشاشة في الوقت الحقيقي.",
+        "livepixCta": "ادعم عبر LIVEPIX",
+        "livepixImageAlt": "رمز QR — LivePix ألمير سانتوس",
+        "pixTitle": "PIX مباشر",
+        "pixDesc": "تبرع مباشرة عبر Pix لدعم القناة بسرعة وسهولة!",
+        "pixCta": "إرسال PIX",
+        "pixImageAlt": "رمز QR — Pix مباشر"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — جميع الحقوق محفوظة",
+        "developedBy": "Developed by:"
+    }
+}

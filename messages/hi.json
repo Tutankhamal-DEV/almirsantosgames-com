@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos का गेमिंग चैनल — लाइव, वीडियो, और बहुत कुछ!"
+    },
+    "Navbar": {
+        "home": "होम",
+        "live": "लाइव",
+        "videos": "वीडियो",
+        "support": "सहायता"
+    },
+    "Hero": {
+        "scroll": "स्क्रॉल"
+    },
+    "ChannelStats": {
+        "subscribers": "सदस्य",
+        "views": "व्यूज़",
+        "videos": "वीडियो",
+        "yearsOfChannel": "चैनल के {years} साल",
+        "yearsIn": "🎂 {years} साल में",
+        "days": "{days} दिन",
+        "daysExclaim": "{days} दिन!"
+    },
+    "YouTubeLive": {
+        "liveNow": "अभी लाइव",
+        "lastLive": "अंतिम स्ट्रीम",
+        "loading": "लोड हो रहा है...",
+        "loadingPlayer": "प्लेयर लोड हो रहा है...",
+        "noVideo": "कोई वीडियो उपलब्ध नहीं",
+        "visitChannel": "चैनल देखें"
+    },
+    "LatestVideos": {
+        "title": "नवीनतम वीडियो",
+        "loading": "वीडियो लोड हो रहे हैं...",
+        "watch": "{title} देखें"
+    },
+    "LivePix": {
+        "title": "चैनल को सहायता दें",
+        "subtitle": "चैनल को बढ़ने में मदद करने का एक तरीका चुनें!",
+        "memberTitle": "सदस्य बनें",
+        "memberDesc": "YouTube पर चैनल के सदस्य बनें और एक्सक्लूसिव इमोट्स और विशेष लाभ प्राप्त करें!",
+        "memberCta": "सदस्य बनें",
+        "memberImageAlt": "QR कोड — चैनल सदस्य बनें",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "लाइव के दौरान अपना संदेश भेजें और सीधे सहायता करें! आपका योगदान स्क्रीन पर रियल टाइम में दिखाई देता है।",
+        "livepixCta": "LIVEPIX से सहायता करें",
+        "livepixImageAlt": "QR कोड — LivePix Almir Santos",
+        "pixTitle": "डायरेक्ट PIX",
+        "pixDesc": "Pix के माध्यम से सीधे दान करें और चैनल को जल्दी और आसानी से सहायता दें!",
+        "pixCta": "PIX भेजें",
+        "pixImageAlt": "QR कोड — डायरेक्ट Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — सर्वाधिकार सुरक्षित",
+        "developedBy": "Developed by:"
+    }
+}

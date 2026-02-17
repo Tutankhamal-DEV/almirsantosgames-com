@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Chaîne gaming d'Almir Santos — Lives, vidéos et bien plus !"
+    },
+    "Navbar": {
+        "home": "Accueil",
+        "live": "En Direct",
+        "videos": "Vidéos",
+        "support": "Soutenir"
+    },
+    "Hero": {
+        "scroll": "Défiler"
+    },
+    "ChannelStats": {
+        "subscribers": "Abonnés",
+        "views": "Vues",
+        "videos": "Vidéos",
+        "yearsOfChannel": "{years} ans de chaîne",
+        "yearsIn": "🎂 {years} ans dans",
+        "days": "{days} jours",
+        "daysExclaim": "{days} jours !"
+    },
+    "YouTubeLive": {
+        "liveNow": "EN DIRECT",
+        "lastLive": "DERNIER STREAM",
+        "loading": "Chargement...",
+        "loadingPlayer": "Chargement du lecteur...",
+        "noVideo": "Aucune vidéo disponible",
+        "visitChannel": "VISITER LA CHAÎNE"
+    },
+    "LatestVideos": {
+        "title": "DERNIÈRES VIDÉOS",
+        "loading": "Chargement des vidéos...",
+        "watch": "Regarder {title}"
+    },
+    "LivePix": {
+        "title": "SOUTENEZ LA CHAÎNE",
+        "subtitle": "Choisissez une façon d'aider la chaîne à continuer de grandir !",
+        "memberTitle": "DEVENIR MEMBRE",
+        "memberDesc": "Devenez membre de la chaîne sur YouTube et accédez à des émoticônes exclusives et des avantages spéciaux !",
+        "memberCta": "DEVENIR MEMBRE",
+        "memberImageAlt": "QR Code — Devenir Membre de la chaîne",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Envoyez votre message et soutenez directement pendant les lives ! Votre contribution apparaît en temps réel à l'écran.",
+        "livepixCta": "SOUTENIR VIA LIVEPIX",
+        "livepixImageAlt": "QR Code — LivePix Almir Santos",
+        "pixTitle": "PIX DIRECT",
+        "pixDesc": "Faites un don direct via Pix pour soutenir la chaîne rapidement et facilement !",
+        "pixCta": "ENVOYER PIX",
+        "pixImageAlt": "QR Code — Pix Direct"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — Tous droits réservés",
+        "developedBy": "Developed by:"
+    }
+}

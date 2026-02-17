@@ -1,0 +1,57 @@
+{
+    "Metadata": {
+        "title": "Almir Santos Games",
+        "description": "Almir Santos gaming channel — Lives, videos, and much more!"
+    },
+    "Navbar": {
+        "home": "Home",
+        "live": "Live",
+        "videos": "Videos",
+        "support": "Support"
+    },
+    "Hero": {
+        "scroll": "Scroll"
+    },
+    "ChannelStats": {
+        "subscribers": "Subscribers",
+        "views": "Views",
+        "videos": "Videos",
+        "yearsOfChannel": "{years} years on air",
+        "yearsIn": "🎂 {years} years in",
+        "days": "{days} days",
+        "daysExclaim": "{days} days!"
+    },
+    "YouTubeLive": {
+        "liveNow": "LIVE NOW",
+        "lastLive": "LATEST STREAM",
+        "loading": "Loading...",
+        "loadingPlayer": "Loading player...",
+        "noVideo": "No video available",
+        "visitChannel": "VISIT CHANNEL"
+    },
+    "LatestVideos": {
+        "title": "LATEST VIDEOS",
+        "loading": "Loading videos...",
+        "watch": "Watch {title}"
+    },
+    "LivePix": {
+        "title": "SUPPORT THE CHANNEL",
+        "subtitle": "Choose a way to help the channel keep growing!",
+        "memberTitle": "BECOME A MEMBER",
+        "memberDesc": "Become a channel member on YouTube and get access to exclusive emotes and special perks!",
+        "memberCta": "JOIN NOW",
+        "memberImageAlt": "QR Code — Become a Channel Member",
+        "livepixTitle": "LIVEPIX",
+        "livepixDesc": "Send your message and support directly during live streams! Your contribution appears in real time on screen.",
+        "livepixCta": "SUPPORT VIA LIVEPIX",
+        "livepixImageAlt": "QR Code — LivePix Almir Santos",
+        "pixTitle": "DIRECT PIX",
+        "pixDesc": "Make a direct donation via Pix to support the channel quickly and easily!",
+        "pixCta": "SEND PIX",
+        "pixImageAlt": "QR Code — Direct Pix"
+    },
+    "Footer": {
+        "rights": "© {year} Almir Santos Games — All rights reserved",
+        "developedBy": "Developed by:"
+    }
+}
