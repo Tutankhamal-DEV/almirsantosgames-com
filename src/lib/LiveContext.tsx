@@ -7,7 +7,6 @@ import {
   useEffect,
   type ReactNode,
 } from "react";
-import { CHANNEL_ID } from "./youtube";
 
 interface LiveStatus {
   isLive: boolean;
@@ -24,30 +23,15 @@ export function useLiveStatus() {
 }
 
 /**
- * Checks if the YouTube channel is currently live by attempting to
- * resolve the channel's /live URL via YouTube oEmbed.
+ * Checks live status via our server-side API route.
+ * The actual YouTube oEmbed call happens on the server,
+ * so 404 errors (when not live) don't appear in the browser console.
  */
 async function checkLiveStatus(): Promise<LiveStatus> {
   try {
-    const liveUrl = `https://www.youtube.com/channel/${CHANNEL_ID}/live`;
-    const oembedUrl = `https://www.youtube.com/oembed?url=${encodeURIComponent(liveUrl)}&format=json`;
-    const res = await fetch(oembedUrl, { cache: "no-store" });
-
+    const res = await fetch("/api/live-status", { cache: "no-store" });
     if (!res.ok) return { isLive: false, liveVideoId: null };
-
-    const data = await res.json();
-    // oEmbed returns html with an iframe embed URL containing the video ID
-    const match = data.html?.match(/embed\/([a-zA-Z0-9_-]+)/);
-    const videoId = match?.[1] ?? null;
-
-    // The title from oEmbed will typically contain live indicators
-    const title: string = data.title ?? "";
-    const isLiveStream =
-      title.toLowerCase().includes("live") ||
-      title.toLowerCase().includes("ao vivo") ||
-      data.html?.includes("live_stream");
-
-    return { isLive: !!videoId && isLiveStream, liveVideoId: videoId };
+    return await res.json();
   } catch {
     return { isLive: false, liveVideoId: null };
   }

@@ -11,7 +11,6 @@ import ScanlineOverlay from "@/components/ScanlineOverlay";
 import LazyCanvas from "@/components/LazyCanvas";
 import Navbar from "@/components/Navbar";
 import DevGuard from "@/components/DevGuard";
-import LoadScreen from "@/components/LoadScreen";
 import { LiveProvider } from "@/lib/LiveContext";
 
 type Props = {
@@ -89,9 +88,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="bg-retro-black text-retro-chrome-light font-mono antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LiveProvider>
-            {/* Loading Screen — first, above everything */}
-            <LoadScreen />
-
             {/* DevGuard - blocks right-click & DevTools */}
             <DevGuard />
 
