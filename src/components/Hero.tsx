@@ -52,12 +52,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center site-container"
     >
       {/* Hero Logo */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10"
-      >
+      <div className="relative z-10">
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -66,23 +61,27 @@ export default function Hero() {
           onDragStart={(e) => e.preventDefault()}
           className="cursor-pointer outline-none focus:outline-none select-none relative"
         >
-          {/* Static WebP placeholder — paints instantly as LCP */}
+          {/* Static WebP placeholder — in normal flow, sets container size, visible first */}
           <Image
             src="/assets/almirsantos_logo_placeholder.webp"
             alt="Almir Santos Games Logo"
             width={500}
             height={500}
             priority
-            className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none transition-opacity duration-500 ${avifLoaded ? "opacity-0" : "opacity-100"}`}
+            className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none ${avifLoaded ? "hidden" : ""}`}
             draggable={false}
           />
-          {/* Animated AVIF — overlays and fades in when ready */}
+          {/*
+            Animated AVIF — hidden (opacity-0) until loaded.
+            When onLoad fires, placeholder gets display:none and AVIF becomes visible.
+            No transition = instant swap, impossible to see both at the same time.
+          */}
           <Image
             src="/assets/almirsantos_hero_animation.avif"
             alt="Almir Santos Games Logo"
             width={500}
             height={500}
-            className="absolute inset-0 w-full h-full object-contain select-none pointer-events-none"
+            className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none ${avifLoaded ? "" : "opacity-0 absolute inset-0"}`}
             unoptimized
             draggable={false}
             onLoad={() => setAvifLoaded(true)}
@@ -109,13 +108,13 @@ export default function Hero() {
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
 
-      {/* Title */}
+      {/* Title — fast entrance */}
       <motion.h1
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
         className="hero-glitch relative z-10 mt-6 font-pixel text-center text-white text-sm sm:text-xl md:text-2xl tracking-wider"
         data-text="ALMIR SANTOS GAMES"
         style={{
@@ -125,11 +124,11 @@ export default function Hero() {
         ALMIR SANTOS GAMES
       </motion.h1>
 
-      {/* Social CTAs */}
+      {/* Social CTAs — fast entrance */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         className="relative z-10 flex items-center gap-4 mt-6"
       >
         <RetroButton
@@ -150,7 +149,7 @@ export default function Hero() {
         animate={{ opacity: [0, 1, 1, 0] }}
         transition={{
           duration: 6,
-          delay: 1.5,
+          delay: 0.8,
           times: [0, 0.1, 0.75, 1],
           ease: "easeInOut",
         }}

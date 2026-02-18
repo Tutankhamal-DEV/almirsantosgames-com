@@ -81,6 +81,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         <link
           rel="preload"
           as="image"
+          type="image/webp"
+          href="/assets/almirsantos_logo_placeholder.webp"
+        />
+        <link
+          rel="preload"
+          as="image"
           type="image/avif"
           href="/assets/almirsantos_hero_animation.avif"
         />
