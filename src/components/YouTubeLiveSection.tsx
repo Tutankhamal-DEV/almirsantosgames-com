@@ -95,6 +95,7 @@ export default function YouTubeLiveSection() {
               ) : videoId ? (
                 /* Thumbnail placeholder until IO triggers */
                 <div className="w-full h-full relative bg-retro-black">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- YouTube CDN thumbnail */}
                   <img
                     src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
                     alt={videoTitle}
@@ -126,8 +127,7 @@ export default function YouTubeLiveSection() {
                 <iframe
                   src={`https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${typeof window !== "undefined" ? window.location.hostname : "localhost"}`}
                   title="Chat ao vivo"
-                  className="w-full h-full border-0"
-                  style={{ minHeight: "400px" }}
+                  className="w-full h-full border-0 live-chat-iframe"
                 />
               </div>
             </div>

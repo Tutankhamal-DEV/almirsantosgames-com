@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const SCENES = [
   { id: 0, name: "Standard", icon: "🔥" },
@@ -15,12 +15,21 @@ export default function DynamicBackgroundsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuPos, setMenuPos] = useState({ x: 0, y: 0 });
   const [activeScene, setActiveScene] = useState(0);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   // Hide navbar and scanlines on this page
   useEffect(() => {
     document.body.classList.add("dynamic-bg-page");
     return () => document.body.classList.remove("dynamic-bg-page");
   }, []);
+
+  // Position context menu via ref (avoids inline styles)
+  useEffect(() => {
+    if (menuRef.current && menuOpen) {
+      menuRef.current.style.left = `${menuPos.x}px`;
+      menuRef.current.style.top = `${menuPos.y}px`;
+    }
+  }, [menuOpen, menuPos]);
 
   // Right-click handler
   const handleContextMenu = useCallback((e: MouseEvent) => {
@@ -70,8 +79,8 @@ export default function DynamicBackgroundsPage() {
       {/* Custom context menu */}
       {menuOpen && (
         <div
+          ref={menuRef}
           className="dynamic-bg-menu"
-          style={{ left: menuPos.x, top: menuPos.y }}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="dynamic-bg-menu-title">Select Background</div>

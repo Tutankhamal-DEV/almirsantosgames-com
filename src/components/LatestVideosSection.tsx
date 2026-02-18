@@ -39,6 +39,7 @@ function VideoCard({
       >
         <div className="retro-border glass-shimmer rounded-lg overflow-hidden transition-all duration-300 group-hover:border-retro-gold group-hover:shadow-[0_0_20px_rgba(212,160,23,0.3)] relative z-[1000]">
           <div className="aspect-video w-full relative">
+            {/* eslint-disable-next-line @next/next/no-img-element -- YouTube CDN thumbnail, external URL */}
             <img
               src={`https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
               alt={video.title}
@@ -49,16 +50,7 @@ function VideoCard({
             />
             {/* Play button overlay */}
             <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "rgba(0,0,0,0.3)",
-                transition: "background 0.3s",
-              }}
-              className="group-hover:!bg-black/50"
+              className="video-play-overlay group-hover:!bg-black/50"
             >
               <svg width="60" height="60" viewBox="0 0 68 48" fill="none">
                 <path

@@ -76,51 +76,14 @@ function StatCard({ icon, label, value, delay, isInView }: StatCardProps) {
       className="glow-card"
       whileHover={{ scale: 1.05 }}
     >
-      <div
-        className="glow-card-fill"
-        style={{
-          padding: "24px 20px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          gap: "12px",
-          cursor: "default",
-        }}
-      >
-        <div
-          style={{
-            width: "52px",
-            height: "52px",
-            borderRadius: "50%",
-            border: "2px solid #f97316",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "rgba(0,0,0,0.4)",
-          }}
-        >
+      <div className="glow-card-fill stat-card-fill">
+        <div className="stat-icon-circle">
           {icon}
         </div>
-        <span
-          className="font-pixel"
-          style={{
-            color: "#f97316",
-            fontSize: "22px",
-            letterSpacing: "0.05em",
-          }}
-        >
+        <span className="font-pixel stat-value">
           {value}
         </span>
-        <span
-          className="font-mono"
-          style={{
-            color: "rgba(255,255,255,0.7)",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
-        >
+        <span className="font-mono stat-label">
           {label}
         </span>
       </div>
@@ -162,159 +125,60 @@ function CountdownCard({
       className="glow-card"
       whileHover={{ scale: 1.05 }}
     >
-      <div
-        className="glow-card-fill"
-        style={{
-          padding: "24px 20px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          gap: "12px",
-          cursor: "default",
-        }}
-      >
-        <div
-          style={{
-            width: "52px",
-            height: "52px",
-            borderRadius: "50%",
-            border: "2px solid #f97316",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "rgba(0,0,0,0.4)",
-          }}
-        >
+      <div className="glow-card-fill stat-card-fill">
+        <div className="stat-icon-circle">
           <Calendar size={22} color="#f97316" />
         </div>
 
         {/* Countdown digits */}
         <div
-          style={{ display: "flex", gap: "6px", alignItems: "center" }}
+          className="countdown-row"
           suppressHydrationWarning
         >
-          <div style={{ textAlign: "center" }}>
-            <span
-              className="font-pixel"
-              style={{
-                color: "#f97316",
-                fontSize: "22px",
-                letterSpacing: "0.05em",
-              }}
-            >
+          <div className="countdown-unit">
+            <span className="font-pixel stat-value">
               {d.days}
             </span>
-            <span
-              className="font-mono"
-              style={{
-                display: "block",
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "10px",
-                textTransform: "uppercase",
-              }}
-            >
+            <span className="font-mono countdown-sub">
               {t("countDays")}
             </span>
           </div>
-          <span
-            className="font-pixel"
-            style={{ color: "#f97316", fontSize: "18px", marginBottom: "14px" }}
-          >
+          <span className="font-pixel countdown-sep">
             :
           </span>
-          <div style={{ textAlign: "center" }}>
-            <span
-              className="font-pixel"
-              style={{
-                color: "#f97316",
-                fontSize: "22px",
-                letterSpacing: "0.05em",
-              }}
-            >
+          <div className="countdown-unit">
+            <span className="font-pixel stat-value">
               {pad(d.hours)}
             </span>
-            <span
-              className="font-mono"
-              style={{
-                display: "block",
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "10px",
-                textTransform: "uppercase",
-              }}
-            >
+            <span className="font-mono countdown-sub">
               {t("countHours")}
             </span>
           </div>
-          <span
-            className="font-pixel"
-            style={{ color: "#f97316", fontSize: "18px", marginBottom: "14px" }}
-          >
+          <span className="font-pixel countdown-sep">
             :
           </span>
-          <div style={{ textAlign: "center" }}>
-            <span
-              className="font-pixel"
-              style={{
-                color: "#f97316",
-                fontSize: "22px",
-                letterSpacing: "0.05em",
-              }}
-            >
+          <div className="countdown-unit">
+            <span className="font-pixel stat-value">
               {pad(d.minutes)}
             </span>
-            <span
-              className="font-mono"
-              style={{
-                display: "block",
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "10px",
-                textTransform: "uppercase",
-              }}
-            >
+            <span className="font-mono countdown-sub">
               {t("countMin")}
             </span>
           </div>
-          <span
-            className="font-pixel"
-            style={{ color: "#f97316", fontSize: "18px", marginBottom: "14px" }}
-          >
+          <span className="font-pixel countdown-sep">
             :
           </span>
-          <div style={{ textAlign: "center" }}>
-            <span
-              className="font-pixel"
-              style={{
-                color: "#f97316",
-                fontSize: "22px",
-                letterSpacing: "0.05em",
-              }}
-            >
+          <div className="countdown-unit">
+            <span className="font-pixel stat-value">
               {pad(d.seconds)}
             </span>
-            <span
-              className="font-mono"
-              style={{
-                display: "block",
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "10px",
-                textTransform: "uppercase",
-              }}
-            >
+            <span className="font-mono countdown-sub">
               {t("countSec")}
             </span>
           </div>
         </div>
 
-        <span
-          className="font-mono"
-          style={{
-            color: "rgba(255,255,255,0.7)",
-            fontSize: "13px",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-          }}
-        >
+        <span className="font-mono stat-label">
           🎂 {t("nextAnniversary", { years: channelAge + 1 })}
         </span>
       </div>
@@ -332,17 +196,10 @@ export default function ChannelStats() {
   return (
     <section
       ref={ref}
-      className="relative z-10"
-      style={{ padding: "40px 24px 20px" }}
+      className="relative z-10 channel-stats-section"
     >
-      <div style={{ width: "100%", maxWidth: "900px", margin: "0 auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: "16px",
-          }}
-        >
+      <div className="channel-stats-grid-wrapper">
+        <div className="channel-stats-grid">
           <StatCard
             icon={<Users size={22} color="#f97316" />}
             label={t("subscribers")}

@@ -23,7 +23,7 @@ const DONATION_CARDS = [
         fullUrl: "https://www.youtube.com/@AlmirSantos/join",
         imageSrc: "/assets/seja_membro_almir_md.webp",
         imageAlt: "QR Code — Seja Membro",
-        color: "#dc2626",
+        colorClass: "overlay-card-red",
         extraImage: "",
     },
     {
@@ -33,7 +33,7 @@ const DONATION_CARDS = [
         fullUrl: "https://livepix.gg/almirsantos10",
         imageSrc: "/assets/livepix_almir_md.webp",
         imageAlt: "QR Code — LivePix",
-        color: "#f97316",
+        colorClass: "overlay-card-orange",
         extraImage: "",
     },
     {
@@ -43,7 +43,7 @@ const DONATION_CARDS = [
         fullUrl: "",
         imageSrc: "/assets/logo_pix_direto_md.webp",
         imageAlt: "QR Code — Pix Direto",
-        color: "#d4a017",
+        colorClass: "overlay-card-gold",
         extraImage: "",
     },
     {
@@ -54,7 +54,7 @@ const DONATION_CARDS = [
         imageSrc: "/assets/revista_superup_qrcode.png",
         imageAlt: "QR Code — SuperUp Jogos",
         extraImage: "/assets/superupjogos.png",
-        color: "#22c55e",
+        colorClass: "overlay-card-green",
     },
 ];
 
@@ -79,6 +79,7 @@ export default function OverlayPage() {
     const [tempConsole, setTempConsole] = useState(consoleName);
 
     const cardTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
     const [avifLoaded, setAvifLoaded] = useState(false);
     const [magazineOpen, setMagazineOpen] = useState(false);
 
@@ -87,6 +88,14 @@ export default function OverlayPage() {
         document.body.classList.add("overlay-page");
         return () => document.body.classList.remove("overlay-page");
     }, []);
+
+    /* ── Position context menu via ref (avoids inline styles) ── */
+    useEffect(() => {
+        if (menuRef.current && menuOpen) {
+            menuRef.current.style.left = `${menuPos.x}px`;
+            menuRef.current.style.top = `${menuPos.y}px`;
+        }
+    }, [menuOpen, menuPos]);
 
     /* ── Transparent/scanlines/bg control ── */
     useEffect(() => {
@@ -246,8 +255,7 @@ export default function OverlayPage() {
                         </div>
 
                         <div
-                            className={`overlay-donation-card overlay-card-${cardTransition}`}
-                            style={{ "--card-accent": card.color } as React.CSSProperties}
+                            className={`overlay-donation-card overlay-card-${cardTransition} ${card.colorClass}`}
                         >
                             {card.id === "superup" ? (
                                 /* ── 3D Magazine for SuperUp ── */
@@ -279,7 +287,7 @@ export default function OverlayPage() {
                                         </div>
                                     </div>
                                     <div className="overlay-card-info">
-                                        <div className="overlay-card-title" style={{ color: card.color }}>
+                                        <div className="overlay-card-title">
                                             {card.title}
                                         </div>
                                         <div className="overlay-card-url">{card.url}</div>
@@ -300,7 +308,7 @@ export default function OverlayPage() {
                                         />
                                     </div>
                                     <div className="overlay-card-info">
-                                        <div className="overlay-card-title" style={{ color: card.color }}>
+                                        <div className="overlay-card-title">
                                             {card.title}
                                         </div>
                                         <div className="overlay-card-url">{card.url}</div>
@@ -321,8 +329,8 @@ export default function OverlayPage() {
             {/* ── Context Menu ── */}
             {menuOpen && (
                 <div
+                    ref={menuRef}
                     className="overlay-menu"
-                    style={{ left: menuPos.x, top: menuPos.y }}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Tab Selector */}

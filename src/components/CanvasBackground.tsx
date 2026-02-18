@@ -2233,8 +2233,7 @@ export default function CanvasBackground() {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 w-full h-full"
-            style={{ zIndex: 0 }}
+            className="fixed inset-0 w-full h-full canvas-bg"
             aria-hidden="true"
         />
     );

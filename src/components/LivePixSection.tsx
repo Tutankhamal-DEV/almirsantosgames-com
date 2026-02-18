@@ -43,35 +43,13 @@ function SupportCard({
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      style={{ height: "100%" }}
+      className="support-card-motion"
     >
-      <div className="glow-card" style={{ height: "100%" }}>
-        <div
-          className="glow-card-fill"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            height: "100%",
-            padding: "32px 24px",
-          }}
-        >
+      <div className="glow-card support-card-outer">
+        <div className="glow-card-fill support-card-fill">
           {/* QR Code Image */}
-          <div
-            style={{
-              width: "180px",
-              height: "180px",
-              borderRadius: "12px",
-              overflow: "hidden",
-              marginBottom: "20px",
-              border: "2px solid rgba(249,115,22,0.4)",
-              backgroundColor: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="support-qr-container">
+            {/* eslint-disable-next-line @next/next/no-img-element -- uses srcSet for responsive delivery */}
             <img
               src={imageSrc}
               srcSet={imageSrcSet}
@@ -79,7 +57,7 @@ function SupportCard({
               alt={imageAlt}
               width={176}
               height={176}
-              style={{ objectFit: "contain" }}
+              className="support-qr-img"
               draggable={false}
               loading="lazy"
               decoding="async"
@@ -87,30 +65,12 @@ function SupportCard({
           </div>
 
           {/* Title */}
-          <h3
-            className="font-pixel"
-            style={{
-              color: "#fff",
-              fontSize: "24px",
-              marginBottom: "12px",
-              letterSpacing: "0.1em",
-            }}
-          >
+          <h3 className="font-pixel support-card-title">
             {title}
           </h3>
 
           {/* Description */}
-          <p
-            className="font-mono"
-            style={{
-              color: "rgba(255,255,255,0.85)",
-              fontSize: "15px",
-              lineHeight: "1.7",
-              marginBottom: "24px",
-              maxWidth: "280px",
-              flex: 1,
-            }}
-          >
+          <p className="font-mono support-card-desc">
             {description}
           </p>
 
@@ -120,7 +80,7 @@ function SupportCard({
             icon={ctaIcon}
             label={cta}
             trailing={
-              <ExternalLink size={14} color="#fff" style={{ opacity: 0.6 }} />
+              <ExternalLink size={14} color="#fff" className="icon-trailing-dim" />
             }
             className="w-full justify-center"
           />
@@ -167,35 +127,13 @@ function PixCopyCard({
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      style={{ height: "100%" }}
+      className="support-card-motion"
     >
-      <div className="glow-card" style={{ height: "100%" }}>
-        <div
-          className="glow-card-fill"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            height: "100%",
-            padding: "32px 24px",
-          }}
-        >
+      <div className="glow-card support-card-outer">
+        <div className="glow-card-fill support-card-fill">
           {/* Pix Image */}
-          <div
-            style={{
-              width: "180px",
-              height: "180px",
-              borderRadius: "12px",
-              overflow: "hidden",
-              marginBottom: "20px",
-              border: "2px solid rgba(249,115,22,0.4)",
-              backgroundColor: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div className="support-qr-container">
+            {/* eslint-disable-next-line @next/next/no-img-element -- uses srcSet for responsive delivery */}
             <img
               src="/assets/logo_pix_direto_md.webp"
               srcSet="/assets/logo_pix_direto_sm.webp 120w, /assets/logo_pix_direto_md.webp 176w, /assets/logo_pix_direto_lg.webp 260w"
@@ -203,7 +141,7 @@ function PixCopyCard({
               alt={t("pixImageAlt")}
               width={176}
               height={176}
-              style={{ objectFit: "contain" }}
+              className="support-qr-img"
               draggable={false}
               loading="lazy"
               decoding="async"
@@ -211,48 +149,17 @@ function PixCopyCard({
           </div>
 
           {/* Title */}
-          <h3
-            className="font-pixel"
-            style={{
-              color: "#fff",
-              fontSize: "24px",
-              marginBottom: "12px",
-              letterSpacing: "0.1em",
-            }}
-          >
+          <h3 className="font-pixel support-card-title">
             {t("pixTitle")}
           </h3>
 
           {/* Description */}
-          <p
-            className="font-mono"
-            style={{
-              color: "rgba(255,255,255,0.85)",
-              fontSize: "15px",
-              lineHeight: "1.7",
-              marginBottom: "16px",
-              maxWidth: "280px",
-              flex: 1,
-            }}
-          >
+          <p className="font-mono pix-card-desc">
             {t("pixDesc")}
           </p>
 
           {/* Pix Key Display */}
-          <div
-            className="font-mono"
-            style={{
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(249,115,22,0.3)",
-              borderRadius: "8px",
-              padding: "8px 16px",
-              marginBottom: "16px",
-              fontSize: "13px",
-              color: "#f97316",
-              letterSpacing: "0.03em",
-              wordBreak: "break-all",
-            }}
-          >
+          <div className="font-mono pix-key-display">
             {PIX_KEY}
           </div>
 
@@ -270,14 +177,7 @@ function PixCopyCard({
               <Copy size={16} color="#fff" />
             )}
             <span
-              className="font-mono"
-              style={{
-                fontSize: "14px",
-                color: copied ? "#22c55e" : "#fff",
-                letterSpacing: "0.12em",
-                fontWeight: "bold",
-                textShadow: "0 1px 3px rgba(0,0,0,0.6)",
-              }}
+              className={`font-mono pix-copy-btn-label ${copied ? "pix-copy-success" : ""}`}
             >
               {copied ? "Copiado!" : t("pixCta")}
             </span>
@@ -299,8 +199,7 @@ export default function SupportSection() {
     <section
       id="livepix"
       ref={ref}
-      className="relative z-10 flex items-center justify-center"
-      style={{ minHeight: "100vh", padding: "60px 24px" }}
+      className="relative z-10 flex items-center justify-center livepix-section"
     >
       <div className="site-container">
         {/* Section Header — standardized pattern */}
@@ -308,7 +207,7 @@ export default function SupportSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ textAlign: "center", marginBottom: "48px" }}
+          className="livepix-header"
         >
           <h2
             className="section-title hero-glitch text-white"
@@ -316,27 +215,13 @@ export default function SupportSection() {
           >
             {t("title")}
           </h2>
-          <p
-            className="font-mono"
-            style={{
-              color: "rgba(220,220,220,0.7)",
-              fontSize: "15px",
-              marginTop: "16px",
-            }}
-          >
+          <p className="font-mono livepix-subtitle">
             {t("subtitle")}
           </p>
         </motion.div>
 
         {/* 3 Support Cards Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "24px",
-          }}
-          className="max-lg:!grid-cols-1"
-        >
+        <div className="livepix-grid max-lg:!grid-cols-1">
           {/* Seja Membro */}
           <SupportCard
             href={MEMBRO_URL}

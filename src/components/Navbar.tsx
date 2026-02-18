@@ -161,8 +161,7 @@ export default function Navbar() {
             >
               <span className="text-base leading-none">{LOCALE_META[locale].flag}</span>
               <span
-                className="uppercase text-white font-bold tracking-wider"
-                style={{ fontSize: "11px" }}
+                className="uppercase text-white font-bold tracking-wider navbar-locale-text"
               >
                 {locale}
               </span>
@@ -174,15 +173,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.95 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="absolute right-0 top-full mt-2 rounded-xl overflow-hidden shadow-2xl"
-                  style={{
-                    background: "rgba(8, 8, 8, 0.95)",
-                    border: "1px solid rgba(220, 38, 38, 0.15)",
-                    backdropFilter: "blur(20px)",
-                    width: "360px",
-                    maxHeight: "420px",
-                    overflowY: "auto",
-                  }}
+                  className="absolute right-0 top-full mt-2 rounded-xl overflow-hidden shadow-2xl navbar-lang-dropdown"
                 >
                   <div className="grid grid-cols-2 p-3 gap-1.5">
                     {locales.map((loc) => (
@@ -211,14 +202,12 @@ export default function Navbar() {
                 setLangOpen(!langOpen);
                 setIsOpen(false);
               }}
-              className="retro-btn-sm font-mono text-xs justify-center"
-              style={{ padding: '4px 8px', gap: '4px' }}
+              className="retro-btn-sm font-mono text-xs justify-center navbar-mobile-btn"
               aria-label="Language"
             >
               <span className="text-xs leading-none">{LOCALE_META[locale].flag}</span>
               <span
-                className="uppercase text-white font-bold tracking-wider"
-                style={{ fontSize: '10px' }}
+                className="uppercase text-white font-bold tracking-wider navbar-mobile-text"
               >
                 {locale}
               </span>
@@ -229,8 +218,7 @@ export default function Navbar() {
                 setIsOpen(!isOpen);
                 setLangOpen(false);
               }}
-              className="retro-btn-sm font-mono text-xs justify-center"
-              style={{ padding: '4px 8px', gap: '4px' }}
+              className="retro-btn-sm font-mono text-xs justify-center navbar-mobile-btn"
               aria-label="Menu"
             >
               {isOpen ? (
@@ -239,8 +227,7 @@ export default function Navbar() {
                 <Menu size={13} color="#fff" />
               )}
               <span
-                className="uppercase text-white font-bold tracking-wider"
-                style={{ fontSize: '10px' }}
+                className="uppercase text-white font-bold tracking-wider navbar-mobile-text"
               >
                 Menu
               </span>

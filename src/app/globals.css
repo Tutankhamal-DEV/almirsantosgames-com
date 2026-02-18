@@ -1737,3 +1737,279 @@ body {
   font-size: 14px;
   line-height: 1.7;
 }
+
+/* ===== COMPONENT INLINE-STYLE MIGRATIONS ===== */
+
+/* ── CanvasBackground ── */
+.canvas-bg {
+  z-index: 0;
+}
+
+/* ── RetroButton label ── */
+.retro-btn-label {
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* ── ChannelStats — StatCard ── */
+.stat-card-fill {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  cursor: default;
+}
+
+.stat-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #f97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.stat-value {
+  color: #f97316;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── ChannelStats — Countdown ── */
+.countdown-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.countdown-sub {
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.countdown-sep {
+  color: #f97316;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+/* ── ChannelStats — Section ── */
+.channel-stats-section {
+  padding: 40px 24px 20px;
+}
+
+.channel-stats-grid-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.channel-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+/* ── LivePixSection — SupportCard / PixCopyCard ── */
+.support-card-motion {
+  height: 100%;
+}
+
+.support-card-outer {
+  height: 100%;
+}
+
+.support-card-fill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 32px 24px;
+}
+
+.support-qr-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 2px solid rgba(249, 115, 22, 0.4);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.support-qr-img {
+  object-fit: contain;
+}
+
+.support-card-title {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.support-card-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 280px;
+  flex: 1;
+}
+
+.pix-card-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  max-width: 280px;
+  flex: 1;
+}
+
+.pix-key-display {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #f97316;
+  letter-spacing: 0.03em;
+  word-break: break-all;
+}
+
+.pix-copy-btn-label {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.pix-copy-btn-label.pix-copy-success {
+  color: #22c55e;
+}
+
+.icon-trailing-dim {
+  opacity: 0.6;
+}
+
+/* ── LivePixSection — Section ── */
+.livepix-section {
+  min-height: 100vh;
+  padding: 60px 24px;
+}
+
+.livepix-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.livepix-subtitle {
+  color: rgba(220, 220, 220, 0.7);
+  font-size: 15px;
+  margin-top: 16px;
+}
+
+.livepix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── LatestVideosSection — Play overlay ── */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+}
+
+/* ── YouTubeLiveSection — Chat iframe ── */
+.live-chat-iframe {
+  min-height: 400px;
+}
+
+/* ── Navbar — font size overrides ── */
+.navbar-locale-text {
+  font-size: 11px;
+}
+
+.navbar-mobile-text {
+  font-size: 10px;
+}
+
+.navbar-mobile-btn {
+  padding: 4px 8px;
+  gap: 4px;
+}
+
+/* ── Navbar — Language dropdown ── */
+.navbar-lang-dropdown {
+  background: rgba(8, 8, 8, 0.95);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  backdrop-filter: blur(20px);
+  width: 360px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* ── Overlay — Card color variants ── */
+.overlay-card-red {
+  --card-accent: #dc2626;
+}
+
+.overlay-card-orange {
+  --card-accent: #f97316;
+}
+
+.overlay-card-gold {
+  --card-accent: #d4a017;
+}
+
+.overlay-card-green {
+  --card-accent: #22c55e;
+}
+
+.overlay-card-red .overlay-card-title {
+  color: #dc2626;
+}
+
+.overlay-card-orange .overlay-card-title {
+  color: #f97316;
+}
+
+.overlay-card-gold .overlay-card-title {
+  color: #d4a017;
+}
+
+.overlay-card-green .overlay-card-title {
+  color: #22c55e;
+}

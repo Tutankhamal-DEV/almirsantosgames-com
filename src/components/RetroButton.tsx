@@ -29,16 +29,7 @@ export default function RetroButton({
       className={`retro-btn ${className}`}
     >
       {icon}
-      <span
-        className="font-mono"
-        style={{
-          fontSize: "14px",
-          color: "#fff",
-          letterSpacing: "0.12em",
-          fontWeight: "bold",
-          textShadow: "0 1px 3px rgba(0,0,0,0.6)",
-        }}
-      >
+      <span className="font-mono retro-btn-label">
         {label}
       </span>
       {trailing}
