@@ -1,98 +1,114 @@
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
+import {
+  getTranslations,
+  setRequestLocale,
+  getMessages,
+} from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
 import ScanlineOverlay from "@/components/ScanlineOverlay";
 import LazyCanvas from "@/components/LazyCanvas";
 import Navbar from "@/components/Navbar";
 import DevGuard from "@/components/DevGuard";
+import LoadScreen from "@/components/LoadScreen";
 import { LiveProvider } from "@/lib/LiveContext";
 
 type Props = {
-    children: React.ReactNode;
-    params: Promise<{ locale: string }>;
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 };
 
 export const viewport: Viewport = {
-    width: "device-width",
-    initialScale: 1,
-    themeColor: "#d4a017",
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#d4a017",
 };
 
 export function generateStaticParams() {
-    return routing.locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
-    params,
+  params,
 }: {
-    params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-    const { locale } = await params;
-    const t = await getTranslations({ locale, namespace: "Metadata" });
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
 
-    return {
-        title: t("title"),
-        description: t("description"),
-        keywords: ["almir santos", "games", "youtube", "live", "gaming"],
-        authors: [{ name: "Almir Santos" }],
-        icons: {
-            icon: "/assets/favicon.png",
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: ["almir santos", "games", "youtube", "live", "gaming"],
+    authors: [{ name: "Almir Santos" }],
+    icons: {
+      icon: "/assets/favicon.png",
+    },
+    other: {
+      "theme-color": "#d4a017",
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+      images: [
+        {
+          url: "https://i.imgur.com/wDeIUtQ.gif",
+          width: 1200,
+          height: 1200,
+          alt: "Almir Santos Games",
         },
-        other: {
-            "theme-color": "#d4a017",
-        },
-        openGraph: {
-            title: t("title"),
-            description: t("description"),
-            type: "website",
-            images: [
-                {
-                    url: "https://i.imgur.com/wDeIUtQ.gif",
-                    width: 1200,
-                    height: 1200,
-                    alt: "Almir Santos Games",
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: t("title"),
-            description: t("description"),
-            images: ["https://i.imgur.com/wDeIUtQ.gif"],
-        },
-    };
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["https://i.imgur.com/wDeIUtQ.gif"],
+    },
+  };
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
-    const { locale } = await params;
-    setRequestLocale(locale);
+  const { locale } = await params;
+  setRequestLocale(locale);
 
-    const messages = await getMessages();
+  const messages = await getMessages();
 
-    return (
-        <html lang={locale}>
-            <body className="bg-retro-black text-retro-chrome-light font-mono antialiased">
-                <NextIntlClientProvider locale={locale} messages={messages}>
-                    <LiveProvider>
-                        {/* DevGuard - blocks right-click & DevTools */}
-                        <DevGuard />
+  return (
+    <html lang={locale}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          href="/assets/almirsantos_hero_animation.avif"
+        />
+      </head>
+      <body className="bg-retro-black text-retro-chrome-light font-mono antialiased">
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <LiveProvider>
+            {/* Loading Screen — first, above everything */}
+            <LoadScreen />
 
-                        {/* Canvas Background - behind everything */}
-                        <LazyCanvas />
+            {/* DevGuard - blocks right-click & DevTools */}
+            <DevGuard />
 
-                        {/* Navbar - below scanlines but above content */}
-                        <Navbar />
+            {/* Canvas Background - behind everything */}
+            <LazyCanvas />
 
-                        {/* Main Content */}
-                        <main className="relative z-10">{children}</main>
+            {/* Navbar - below scanlines but above content */}
+            <Navbar />
 
-                        {/* Scanlines Overlay - above everything (z-999) */}
-                        <ScanlineOverlay />
-                    </LiveProvider>
-                </NextIntlClientProvider>
-            </body>
-        </html>
-    );
+            {/* Main Content */}
+            <main className="relative z-10">{children}</main>
+
+            {/* Scanlines Overlay - above everything (z-999) */}
+            <ScanlineOverlay />
+          </LiveProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }
