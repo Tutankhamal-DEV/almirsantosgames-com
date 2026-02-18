@@ -1,5 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Jersey_10 } from "next/font/google";
+
+const jersey10 = Jersey_10({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jersey-10",
+});
 import { NextIntlClientProvider } from "next-intl";
 import {
   getTranslations,
@@ -77,7 +85,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={jersey10.variable}>
       <head>
         <link
           rel="preload"

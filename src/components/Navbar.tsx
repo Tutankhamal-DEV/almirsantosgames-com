@@ -93,7 +93,7 @@ export default function Navbar() {
               alt="Logo"
               width={247}
               height={220}
-              className="w-6 h-6 sm:w-8 sm:h-8"
+              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
               unoptimized
             />
           </a>
@@ -106,8 +106,8 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
                 className={`font-mono text-xs lg:text-sm transition-colors duration-300 flex items-center gap-1 lg:gap-1.5 whitespace-nowrap ${link.id === "live" && isLive
-                    ? "text-red-500 hover:text-red-400"
-                    : "text-white hover:text-red-500"
+                  ? "text-red-500 hover:text-red-400"
+                  : "text-white hover:text-red-500"
                   }`}
               >
                 {link.id === "live" && isLive ? (
@@ -152,8 +152,8 @@ export default function Navbar() {
                         key={loc}
                         onClick={() => switchLocale(loc)}
                         className={`w-full text-left px-3 py-2 font-mono text-sm flex items-center gap-2 transition-colors ${loc === locale
-                            ? "text-retro-gold bg-retro-gold/10"
-                            : "text-white/70 hover:text-white hover:bg-white/5"
+                          ? "text-retro-gold bg-retro-gold/10"
+                          : "text-white/70 hover:text-white hover:bg-white/5"
                           }`}
                       >
                         <span>{LOCALE_META[loc].flag}</span>
@@ -245,8 +245,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handleClick(e, link.href)}
                   className={`font-mono text-base transition-colors py-3 border-b border-retro-red/10 flex items-center justify-center gap-3 w-full ${link.id === "live" && isLive
-                      ? "text-red-500 hover:text-red-400"
-                      : "text-white hover:text-red-500"
+                    ? "text-red-500 hover:text-red-400"
+                    : "text-white hover:text-red-500"
                     }`}
                 >
                   {link.id === "live" && isLive ? (
@@ -279,8 +279,8 @@ export default function Navbar() {
                   key={loc}
                   onClick={() => switchLocale(loc)}
                   className={`text-left px-3 py-3 font-mono text-sm flex items-center gap-2 rounded transition-colors ${loc === locale
-                      ? "text-retro-gold bg-retro-gold/10"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+                    ? "text-retro-gold bg-retro-gold/10"
+                    : "text-white/70 hover:text-white hover:bg-white/5"
                     }`}
                 >
                   <span className="text-lg">{LOCALE_META[loc].flag}</span>
