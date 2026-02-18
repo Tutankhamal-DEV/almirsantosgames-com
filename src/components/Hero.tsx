@@ -24,6 +24,7 @@ export default function Hero() {
   const [bubbles, setBubbles] = useState<
     { id: number; text: string; x: number; y: number }[]
   >([]);
+  const [avifLoaded, setAvifLoaded] = useState(false);
 
   const handleLogoClick = useCallback(() => {
     window.dispatchEvent(new Event("toggle-canvas-scene"));
@@ -65,15 +66,26 @@ export default function Hero() {
           onDragStart={(e) => e.preventDefault()}
           className="cursor-pointer outline-none focus:outline-none relative select-none"
         >
+          {/* Static WebP placeholder — paints instantly as LCP */}
+          <Image
+            src="/assets/almirsantos_logo_placeholder.webp"
+            alt="Almir Santos Games Logo"
+            width={247}
+            height={220}
+            priority
+            className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none transition-opacity duration-500 ${avifLoaded ? "opacity-0 absolute inset-0" : "opacity-100"}`}
+            draggable={false}
+          />
+          {/* Animated AVIF — loads behind, swaps in when ready */}
           <Image
             src="/assets/almirsantos_hero_animation.avif"
             alt="Almir Santos Games Logo"
             width={247}
             height={220}
-            priority
-            className="w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none"
+            className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none transition-opacity duration-500 ${avifLoaded ? "opacity-100" : "opacity-0 absolute inset-0"}`}
             unoptimized
             draggable={false}
+            onLoad={() => setAvifLoaded(true)}
           />
         </motion.div>
 

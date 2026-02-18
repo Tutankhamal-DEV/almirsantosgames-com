@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { motion, useInView } from "motion/react";
 import { Heart, ExternalLink, Star, Copy, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -17,6 +16,7 @@ const PIX_KEY = "pix@almirsantosgames.com";
 interface CardProps {
   href: string;
   imageSrc: string;
+  imageSrcSet: string;
   imageAlt: string;
   title: string;
   description: string;
@@ -29,6 +29,7 @@ interface CardProps {
 function SupportCard({
   href,
   imageSrc,
+  imageSrcSet,
   imageAlt,
   title,
   description,
@@ -71,13 +72,17 @@ function SupportCard({
               justifyContent: "center",
             }}
           >
-            <Image
+            <img
               src={imageSrc}
+              srcSet={imageSrcSet}
+              sizes="(max-width: 640px) 120px, 176px"
               alt={imageAlt}
               width={176}
               height={176}
               style={{ objectFit: "contain" }}
               draggable={false}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -191,13 +196,17 @@ function PixCopyCard({
               justifyContent: "center",
             }}
           >
-            <Image
-              src="/assets/logo_pix_direto.png"
+            <img
+              src="/assets/logo_pix_direto_md.webp"
+              srcSet="/assets/logo_pix_direto_sm.webp 120w, /assets/logo_pix_direto_md.webp 176w, /assets/logo_pix_direto_lg.webp 260w"
+              sizes="(max-width: 640px) 120px, 176px"
               alt={t("pixImageAlt")}
               width={176}
               height={176}
               style={{ objectFit: "contain" }}
               draggable={false}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -335,7 +344,8 @@ export default function SupportSection() {
           {/* Seja Membro */}
           <SupportCard
             href={MEMBRO_URL}
-            imageSrc="/assets/seja_membro_almir.png"
+            imageSrc="/assets/seja_membro_almir_md.webp"
+            imageSrcSet="/assets/seja_membro_almir_sm.webp 120w, /assets/seja_membro_almir_md.webp 176w, /assets/seja_membro_almir_lg.webp 260w"
             imageAlt={t("memberImageAlt")}
             title={t("memberTitle")}
             description={t("memberDesc")}
@@ -348,7 +358,8 @@ export default function SupportSection() {
           {/* LivePix */}
           <SupportCard
             href={LIVEPIX_URL}
-            imageSrc="/assets/livepix_almir.png"
+            imageSrc="/assets/livepix_almir_md.webp"
+            imageSrcSet="/assets/livepix_almir_sm.webp 120w, /assets/livepix_almir_md.webp 176w, /assets/livepix_almir_lg.webp 260w"
             imageAlt={t("livepixImageAlt")}
             title={t("livepixTitle")}
             description={t("livepixDesc")}
