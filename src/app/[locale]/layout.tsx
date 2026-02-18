@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import {
   getTranslations,
@@ -110,6 +111,13 @@ export default async function LocaleLayout({ children, params }: Props) {
             <ScanlineOverlay />
           </LiveProvider>
         </NextIntlClientProvider>
+
+        {/* Cloudflare Web Analytics */}
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "24d732a70f594b9c86fb2ad5f6704af7"}'
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
