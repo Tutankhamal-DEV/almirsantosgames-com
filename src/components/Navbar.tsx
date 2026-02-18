@@ -88,24 +88,14 @@ export default function Navbar() {
             className="font-pixel text-xs sm:text-sm text-white hover:text-retro-gold transition-colors whitespace-nowrap flex items-center gap-2 shrink-0"
             aria-label="Almir Santos Games"
           >
-            <span className="relative w-6 h-6 sm:w-8 sm:h-8 inline-block">
-              <Image
-                src="/assets/almirsantos_logo_placeholder.webp"
-                alt="Logo"
-                width={247}
-                height={220}
-                className="w-full h-full object-contain"
-              />
-              <Image
-                src="/assets/almirsantos_hero_animation.avif"
-                alt="Logo"
-                width={247}
-                height={220}
-                className="w-full h-full object-contain absolute inset-0"
-                unoptimized
-                loading="lazy"
-              />
-            </span>
+            <Image
+              src="/assets/almirsantos_hero_animation.avif"
+              alt="Logo"
+              width={247}
+              height={220}
+              className="w-6 h-6 sm:w-8 sm:h-8"
+              unoptimized
+            />
           </a>
 
           {/* Desktop Links + Language Switcher */}
@@ -115,11 +105,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
-                className={`font-mono text-xs lg:text-sm transition-colors duration-300 flex items-center gap-1 lg:gap-1.5 whitespace-nowrap ${
-                  link.id === "live" && isLive
+                className={`font-mono text-xs lg:text-sm transition-colors duration-300 flex items-center gap-1 lg:gap-1.5 whitespace-nowrap ${link.id === "live" && isLive
                     ? "text-red-500 hover:text-red-400"
                     : "text-white hover:text-red-500"
-                }`}
+                  }`}
               >
                 {link.id === "live" && isLive ? (
                   <span className="live-pulse-icon">
@@ -162,11 +151,10 @@ export default function Navbar() {
                       <button
                         key={loc}
                         onClick={() => switchLocale(loc)}
-                        className={`w-full text-left px-3 py-2 font-mono text-sm flex items-center gap-2 transition-colors ${
-                          loc === locale
+                        className={`w-full text-left px-3 py-2 font-mono text-sm flex items-center gap-2 transition-colors ${loc === locale
                             ? "text-retro-gold bg-retro-gold/10"
                             : "text-white/70 hover:text-white hover:bg-white/5"
-                        }`}
+                          }`}
                       >
                         <span>{LOCALE_META[loc].flag}</span>
                         <span>{LOCALE_META[loc].name}</span>
@@ -256,11 +244,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleClick(e, link.href)}
-                  className={`font-mono text-base transition-colors py-3 border-b border-retro-red/10 flex items-center justify-center gap-3 w-full ${
-                    link.id === "live" && isLive
+                  className={`font-mono text-base transition-colors py-3 border-b border-retro-red/10 flex items-center justify-center gap-3 w-full ${link.id === "live" && isLive
                       ? "text-red-500 hover:text-red-400"
                       : "text-white hover:text-red-500"
-                  }`}
+                    }`}
                 >
                   {link.id === "live" && isLive ? (
                     <span className="live-pulse-icon">
@@ -291,11 +278,10 @@ export default function Navbar() {
                 <button
                   key={loc}
                   onClick={() => switchLocale(loc)}
-                  className={`text-left px-3 py-3 font-mono text-sm flex items-center gap-2 rounded transition-colors ${
-                    loc === locale
+                  className={`text-left px-3 py-3 font-mono text-sm flex items-center gap-2 rounded transition-colors ${loc === locale
                       ? "text-retro-gold bg-retro-gold/10"
                       : "text-white/70 hover:text-white hover:bg-white/5"
-                  }`}
+                    }`}
                 >
                   <span className="text-lg">{LOCALE_META[loc].flag}</span>
                   <span className="truncate">{LOCALE_META[loc].name}</span>
