@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { Home, Radio, Play, Heart, Globe, Menu, X } from "lucide-react";
+import { Home, Radio, Play, Heart, Menu, X, BookOpen } from "lucide-react";
 import { useLiveStatus } from "@/lib/LiveContext";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
@@ -32,6 +32,7 @@ const LOCALE_META: Record<Locale, { flag: string; name: string }> = {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("hero");
   const { isLive } = useLiveStatus();
   const t = useTranslations("Navbar");
   const rawLocale = useLocale();
@@ -39,7 +40,28 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const NAV_LINKS = [
+  /* ── Scrollspy — tracks which section is in viewport ── */
+  useEffect(() => {
+    const SECTION_IDS = ["hero", "live", "videos", "livepix", "magazine"];
+    const observers: IntersectionObserver[] = [];
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { threshold: 0.35, rootMargin: "-48px 0px 0px 0px" },
+      );
+      io.observe(el);
+      observers.push(io);
+    });
+
+    return () => observers.forEach((io) => io.disconnect());
+  }, []);
+
+  const NAV_LINKS = useMemo(() => [
     { href: "#hero" as const, label: t("home"), icon: Home, id: "home" },
     { href: "#live" as const, label: t("live"), icon: Radio, id: "live" },
     { href: "#videos" as const, label: t("videos"), icon: Play, id: "videos" },
@@ -49,7 +71,13 @@ export default function Navbar() {
       icon: Heart,
       id: "apoie",
     },
-  ];
+    {
+      href: "#magazine" as const,
+      label: t("magazine"),
+      icon: BookOpen,
+      id: "magazine",
+    },
+  ], [t]);
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -79,9 +107,9 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[1001] bg-retro-black/80 backdrop-blur-md border-b border-retro-red/20">
-      <div className="site-container">
+      <div className="navbar-container">
         <div className="flex items-center justify-between h-10 sm:h-12">
-          {/* Brand */}
+          {/* Brand — left */}
           <a
             href="#hero"
             onClick={(e) => handleClick(e, "#hero")}
@@ -98,8 +126,8 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop Links + Language Switcher */}
-          <div className="hidden sm:flex items-center gap-2 lg:gap-4 min-w-0">
+          {/* Desktop: Nav Links — centered, fills available space */}
+          <div className="hidden sm:flex items-center justify-center flex-1 gap-3 lg:gap-5 min-w-0">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -107,7 +135,9 @@ export default function Navbar() {
                 onClick={(e) => handleClick(e, link.href)}
                 className={`font-mono text-xs lg:text-sm transition-colors duration-300 flex items-center gap-1 lg:gap-1.5 whitespace-nowrap ${link.id === "live" && isLive
                   ? "text-red-500 hover:text-red-400"
-                  : "text-white hover:text-red-500"
+                  : activeSection === link.href.slice(1)
+                    ? "nav-link-active"
+                    : "text-white hover:text-red-500"
                   }`}
               >
                 {link.id === "live" && isLive ? (
@@ -120,70 +150,75 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+          </div>
 
-            {/* Language Switcher (Desktop) */}
-            <div className="relative">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="retro-btn-sm font-mono text-xs"
-                aria-label="Language"
+          {/* Desktop: Language Switcher — right */}
+          <div className="hidden sm:block relative shrink-0 ml-2">
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="retro-btn-sm font-mono text-xs"
+              aria-label="Language"
+            >
+              <span className="text-base leading-none">{LOCALE_META[locale].flag}</span>
+              <span
+                className="uppercase text-white font-bold tracking-wider"
+                style={{ fontSize: "11px" }}
               >
-                <Globe size={13} color="#fff" />
-                <span>{LOCALE_META[locale].flag}</span>
-                <span
-                  className="uppercase text-white font-bold tracking-wider"
-                  style={{ fontSize: "11px" }}
+                {locale}
+              </span>
+            </button>
+            <AnimatePresence>
+              {langOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                  className="absolute right-0 top-full mt-2 rounded-xl overflow-hidden shadow-2xl"
+                  style={{
+                    background: "rgba(8, 8, 8, 0.95)",
+                    border: "1px solid rgba(220, 38, 38, 0.15)",
+                    backdropFilter: "blur(20px)",
+                    width: "360px",
+                    maxHeight: "420px",
+                    overflowY: "auto",
+                  }}
                 >
-                  {locale}
-                </span>
-              </button>
-              <AnimatePresence>
-                {langOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-1 bg-retro-black/95 border border-retro-red/20 rounded-lg overflow-hidden shadow-2xl w-44 max-h-[320px] overflow-y-auto"
-                    style={{ backdropFilter: "blur(12px)" }}
-                  >
+                  <div className="grid grid-cols-2 p-3 gap-1.5">
                     {locales.map((loc) => (
                       <button
                         key={loc}
                         onClick={() => switchLocale(loc)}
-                        className={`w-full text-left px-3 py-2 font-mono text-sm flex items-center gap-2 transition-colors ${loc === locale
-                          ? "text-retro-gold bg-retro-gold/10"
-                          : "text-white/70 hover:text-white hover:bg-white/5"
+                        className={`text-left px-4 py-3 font-mono flex items-center gap-3 rounded-xl transition-all duration-150 ${loc === locale
+                          ? "text-retro-gold bg-retro-gold/10 shadow-[inset_0_0_0_1px_rgba(212,160,23,0.25)]"
+                          : "text-white/70 hover:text-white hover:bg-white/8"
                           }`}
                       >
-                        <span>{LOCALE_META[loc].flag}</span>
-                        <span>{LOCALE_META[loc].name}</span>
-                        {loc === locale && (
-                          <span className="ml-auto text-retro-gold">✓</span>
-                        )}
+                        <span className="text-xl leading-none shrink-0">{LOCALE_META[loc].flag}</span>
+                        <span className="text-sm truncate">{LOCALE_META[loc].name}</span>
                       </button>
                     ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Mobile: Language + Menu — grid ensures equal size */}
-          <div className="sm:hidden grid grid-cols-2 gap-2">
+          <div className="sm:hidden grid grid-cols-2 gap-1.5">
             <button
               onClick={() => {
                 setLangOpen(!langOpen);
                 setIsOpen(false);
               }}
               className="retro-btn-sm font-mono text-xs justify-center"
+              style={{ padding: '4px 8px', gap: '4px' }}
               aria-label="Language"
             >
-              <Globe size={13} color="#fff" />
-              <span>{LOCALE_META[locale].flag}</span>
+              <span className="text-xs leading-none">{LOCALE_META[locale].flag}</span>
               <span
                 className="uppercase text-white font-bold tracking-wider"
-                style={{ fontSize: "11px" }}
+                style={{ fontSize: '10px' }}
               >
                 {locale}
               </span>
@@ -195,16 +230,17 @@ export default function Navbar() {
                 setLangOpen(false);
               }}
               className="retro-btn-sm font-mono text-xs justify-center"
+              style={{ padding: '4px 8px', gap: '4px' }}
               aria-label="Menu"
             >
               {isOpen ? (
-                <X size={16} color="#fff" />
+                <X size={13} color="#fff" />
               ) : (
-                <Menu size={16} color="#fff" />
+                <Menu size={13} color="#fff" />
               )}
               <span
                 className="uppercase text-white font-bold tracking-wider"
-                style={{ fontSize: "11px" }}
+                style={{ fontSize: '10px' }}
               >
                 Menu
               </span>
@@ -246,7 +282,9 @@ export default function Navbar() {
                   onClick={(e) => handleClick(e, link.href)}
                   className={`font-mono text-base transition-colors py-3 border-b border-retro-red/10 flex items-center justify-center gap-3 w-full ${link.id === "live" && isLive
                     ? "text-red-500 hover:text-red-400"
-                    : "text-white hover:text-red-500"
+                    : activeSection === link.href.slice(1)
+                      ? "nav-link-active"
+                      : "text-white hover:text-red-500"
                     }`}
                 >
                   {link.id === "live" && isLive ? (
@@ -291,6 +329,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </nav >
   );
 }

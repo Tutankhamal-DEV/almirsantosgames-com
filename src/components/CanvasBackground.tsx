@@ -1491,40 +1491,7 @@ function renderRacing(
     // Draw player car (bigger, red)
     drawCar(ctx, playerX, playerY, 1.4);
 
-    // ── RETRO HUD ──
-    const hudSpeed = Math.floor(
-        160 + RS.speedPulse * 50 + Math.sin(t * 2.3) * 15,
-    );
-    ctx.globalAlpha = 0.75;
-    // Speed
-    ctx.fillStyle = "rgba(0,0,0,0.45)";
-    ctx.fillRect(w - 130, h - 48, 120, 40);
-    ctx.strokeStyle = "rgba(255,100,50,0.5)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(w - 130, h - 48, 120, 40);
-    ctx.fillStyle = "#ff6633";
-    ctx.font = `bold ${PIXEL * 1.5}px "Jersey 10", monospace`;
-    ctx.textAlign = "right";
-    ctx.fillText(`${hudSpeed}`, w - 35, h - 18);
-    ctx.fillStyle = "#ffaa66";
-    ctx.font = `${PIXEL * 0.8}px "Jersey 10", monospace`;
-    ctx.fillText("KM/H", w - 18, h - 18);
-    // Lap + Position
-    ctx.fillStyle = "rgba(0,0,0,0.45)";
-    ctx.fillRect(10, h - 48, 100, 40);
-    ctx.strokeStyle = "rgba(100,200,255,0.5)";
-    ctx.strokeRect(10, h - 48, 100, 40);
-    ctx.fillStyle = "#66ccff";
-    ctx.font = `${PIXEL}px "Jersey 10", monospace`;
-    ctx.textAlign = "left";
-    const lap = (Math.floor(t / 18) % 5) + 1;
-    ctx.fillText(`LAP ${lap}/5`, 22, h - 22);
-    // Position based on how many opponents are ahead
-    const aheadCount = RS.opponents.filter((o) => o.z > 0.05).length;
-    const pos = Math.min(aheadCount + 1, 9);
-    ctx.fillStyle = pos <= 2 ? "#ffdd33" : "#ffffff";
-    ctx.fillText(`P${pos}`, 60, h - 35);
-    ctx.textAlign = "start";
+    ctx.globalAlpha = 1;
 }
 
 /** Home positions for soccer players – single source of truth */
@@ -1975,25 +1942,34 @@ function renderFPS(
     const vanishX = w / 2;
 
     // Horizontal grid lines (perspective, scrolling forward)
-    const hLines = 24;
+    const hLines = 50;
     const floorH = h - horizon;
-    const gridSpeed = gridScroll * 0.4;
-    for (let i = 0; i < hLines; i++) {
-        // Use fract-based scroll: lines move smoothly toward camera
-        const baseT = (i + 1) / (hLines + 1);
-        const scrollFract = (baseT + gridSpeed) % 1.0;
-        // Quadratic perspective mapping for even spacing illusion
-        const perspY = horizon + floorH * scrollFract * scrollFract;
-        if (perspY <= horizon || perspY >= h) continue;
+    const gridSpeed = gridScroll * 0.12;
 
+    const drawHLine = (scrollFract: number) => {
+        const perspT = Math.pow(scrollFract, 1.8);
+        const perspY = horizon + floorH * perspT;
+        if (perspY <= horizon + 1 || perspY >= h - 1) return;
         const closeness = (perspY - horizon) / floorH;
-        const alpha = 0.08 + closeness * 0.55;
+        const alpha = 0.06 + closeness * 0.55;
         ctx.strokeStyle = `rgba(255,50,180,${alpha})`;
-        ctx.lineWidth = 0.5 + closeness * 1.5;
+        ctx.lineWidth = 0.5 + closeness * 1.8;
         ctx.beginPath();
         ctx.moveTo(0, perspY);
         ctx.lineTo(w, perspY);
         ctx.stroke();
+    };
+
+    for (let i = 0; i < hLines; i++) {
+        const baseT = i / hLines;
+        const scrollFract = ((baseT + gridSpeed) % 1.0 + 1.0) % 1.0;
+        drawHLine(scrollFract);
+    }
+    // Extra lines near the wrap boundary (0↔1) to close the seam gap
+    for (let j = 1; j <= 4; j++) {
+        const seam = (gridSpeed % 1.0 + 1.0) % 1.0;
+        drawHLine(((seam + j * 0.015) % 1.0 + 1.0) % 1.0);
+        drawHLine(((seam - j * 0.015) % 1.0 + 1.0) % 1.0);
     }
 
     // Vertical grid lines (converging to vanishing point)
@@ -2127,6 +2103,7 @@ export default function CanvasBackground() {
     const shapeGridRef = useRef<Uint8Array | null>(null);
     const dimensionsRef = useRef({ cols: 0, rows: 0 });
     const timeRef = useRef(0);
+    const lastFrameRef = useRef(0);
     const mouseRef = useRef({ x: -1, y: -1 });
     const sceneIndexRef = useRef(0);
 
@@ -2193,10 +2170,14 @@ export default function CanvasBackground() {
         const render = () => {
             // Skip rendering when tab is hidden — saves 100% CPU
             if (document.hidden) {
+                lastFrameRef.current = 0; // reset so we don't get a huge delta on resume
                 animationRef.current = requestAnimationFrame(render);
                 return;
             }
-            timeRef.current += 0.016;
+            const now = performance.now();
+            const delta = lastFrameRef.current ? Math.min((now - lastFrameRef.current) / 1000, 0.05) : 0.016;
+            lastFrameRef.current = now;
+            timeRef.current += delta;
             const w = window.innerWidth,
                 h = window.innerHeight;
             const scene = getScene();

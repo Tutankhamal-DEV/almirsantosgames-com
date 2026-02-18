@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const CHANNEL_ID = "UCZ263BAMRSrPoh0-ixwzJOA";
+const CHANNEL_ID = "UCRDH3LQQQRrEs1UnGP7fBuw";
 
 /**
  * Server-side proxy for YouTube oEmbed live-status check.

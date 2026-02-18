@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { useLiveStatus } from "@/lib/LiveContext";
 import { useYouTubeVideos, CHANNEL_ID } from "@/lib/youtube";
@@ -20,7 +20,10 @@ export default function YouTubeLiveSection() {
 
   // IO-gated iframe: only mount iframe when section nears viewport
   const [iframeReady, setIframeReady] = useState(false);
-  const iframeGateRef = useCallback((node: HTMLDivElement | null) => {
+  const iframeGateRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const node = iframeGateRef.current;
     if (!node) return;
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -29,7 +32,7 @@ export default function YouTubeLiveSection() {
           io.disconnect();
         }
       },
-      { rootMargin: "300px" }, // start loading 300px before visible
+      { rootMargin: "300px" },
     );
     io.observe(node);
     return () => io.disconnect();

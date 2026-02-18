@@ -6,6 +6,7 @@ import ChannelStats from "@/components/ChannelStats";
 import YouTubeLiveSection from "@/components/YouTubeLiveSection";
 import LatestVideosSection from "@/components/LatestVideosSection";
 import LivePixSection from "@/components/LivePixSection";
+import MagazineSection from "@/components/MagazineSection";
 
 export default function Home() {
   const t = useTranslations("Footer");
@@ -35,6 +36,12 @@ export default function Home() {
       </div>
 
       <LivePixSection />
+
+      <div className="relative z-10 site-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-retro-gold/30 to-transparent" />
+      </div>
+
+      <MagazineSection />
 
       {/* Footer */}
       <footer className="relative z-10 bg-retro-black/80 backdrop-blur-md border-t border-retro-red/20">

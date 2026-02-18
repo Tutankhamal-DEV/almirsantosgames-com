@@ -9,7 +9,7 @@ import RetroButton from "./RetroButton";
 /* ── URLs ─────────────────────────────────────────────── */
 const LIVEPIX_URL = "https://livepix.gg/almirsantos10";
 const MEMBRO_URL = "https://www.youtube.com/@AlmirSantos/join";
-const PIX_KEY = "pix@almirsantosgames.com";
+const PIX_KEY = "2abd7000-f8fd-4d99-a685-5aa284a888c5";
 
 /* ── Support Card ────────────────────────────────────── */
 
@@ -232,6 +232,7 @@ function PixCopyCard({
               lineHeight: "1.7",
               marginBottom: "16px",
               maxWidth: "280px",
+              flex: 1,
             }}
           >
             {t("pixDesc")}
@@ -255,13 +256,13 @@ function PixCopyCard({
             {PIX_KEY}
           </div>
 
-          {/* Copy Button */}
+          {/* Copy Button — matches RetroButton style */}
           <motion.button
             onClick={handleCopy}
             whileHover={{ y: -3 }}
             whileTap={{ y: 2 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className={`retro-btn w-full justify-center ${copied ? "!border-green-500 !shadow-[0_5px_0_#166534]" : ""}`}
+            className={`retro-btn w-full justify-center`}
           >
             {copied ? (
               <Check size={16} color="#22c55e" />
@@ -301,45 +302,40 @@ export default function SupportSection() {
       className="relative z-10 flex items-center justify-center"
       style={{ minHeight: "100vh", padding: "60px 24px" }}
     >
-      <div style={{ width: "100%", maxWidth: "1000px", margin: "0 auto" }}>
-        {/* Section Header */}
+      <div className="site-container">
+        {/* Section Header — standardized pattern */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ textAlign: "center", marginBottom: "48px" }}
         >
-          <div className="glow-card" style={{ display: "inline-block" }}>
-            <div className="glow-card-fill" style={{ padding: "28px 52px" }}>
-              <h2
-                className="font-pixel hero-glitch"
-                data-text={t("title")}
-                style={{
-                  color: "#fff",
-                  fontSize: "30px",
-                  letterSpacing: "0.12em",
-                  marginBottom: "10px",
-                }}
-              >
-                {t("title")}
-              </h2>
-              <p
-                className="font-mono"
-                style={{ color: "rgba(220,220,220,0.8)", fontSize: "15px" }}
-              >
-                {t("subtitle")}
-              </p>
-            </div>
-          </div>
+          <h2
+            className="section-title hero-glitch text-white"
+            data-text={t("title")}
+          >
+            {t("title")}
+          </h2>
+          <p
+            className="font-mono"
+            style={{
+              color: "rgba(220,220,220,0.7)",
+              fontSize: "15px",
+              marginTop: "16px",
+            }}
+          >
+            {t("subtitle")}
+          </p>
         </motion.div>
 
         {/* 3 Support Cards Grid */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "24px",
           }}
+          className="max-lg:!grid-cols-1"
         >
           {/* Seja Membro */}
           <SupportCard

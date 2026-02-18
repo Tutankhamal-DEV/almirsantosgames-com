@@ -7,7 +7,8 @@
         "home": "Início",
         "live": "Ao Vivo",
         "videos": "Vídeos",
-        "support": "Apoie"
+        "support": "Apoie",
+        "magazine": "Revista"
     },
     "Hero": {
         "scroll": "Scroll"
@@ -50,6 +51,15 @@
         "pixDesc": "Faça uma doação direta via Pix para apoiar o canal de forma rápida e fácil!",
         "pixCta": "COPIAR CHAVE PIX",
         "pixImageAlt": "QR Code — Pix Direto"
+    },
+    "Magazine": {
+        "title": "REVISTA SUPERUP JOGOS",
+        "subtitle": "Conheça a revista SuperUp Jogos — conteúdo exclusivo sobre games retrô!",
+        "description": "A SuperUp Jogos é uma revista digital dedicada ao universo dos games retrô e clássicos. Clique na revista para acessar o QR Code e saber mais!",
+        "imageAlt": "Capa da Revista SuperUp Jogos",
+        "qrAlt": "QR Code da Revista SuperUp Jogos",
+        "clickToOpen": "👆 Clique na revista para ver o QR Code",
+        "clickToClose": "👆 Clique para fechar"
     },
     "Footer": {
         "rights": "© {year} Almir Santos Games — Todos os direitos reservados",

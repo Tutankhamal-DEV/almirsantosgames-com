@@ -7,7 +7,8 @@
         "home": "홈",
         "live": "라이브",
         "videos": "영상",
-        "support": "후원"
+        "support": "후원",
+        "magazine": "Magazine"
     },
     "Hero": {
         "scroll": "스크롤"
@@ -54,5 +55,14 @@
     "Footer": {
         "rights": "© {year} Almir Santos Games — 모든 권리 보유",
         "developedBy": "Developed by:"
+    },
+    "Magazine": {
+        "title": "SUPERUP JOGOS MAGAZINE",
+        "subtitle": "SuperUp Jogos — retro gaming magazine!",
+        "description": "SuperUp Jogos is a digital magazine about retro and classic games. Click the magazine to see the QR Code!",
+        "imageAlt": "SuperUp Jogos Magazine Cover",
+        "qrAlt": "SuperUp Jogos Magazine QR Code",
+        "clickToOpen": "👆 Click to see QR Code",
+        "clickToClose": "👆 Click to close"
     }
 }

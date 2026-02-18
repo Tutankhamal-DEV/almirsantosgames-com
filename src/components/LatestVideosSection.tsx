@@ -110,7 +110,6 @@ export default function LatestVideosSection() {
           >
             {t("title")}
           </h2>
-          <div className="mt-4 mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-retro-red to-transparent" />
         </motion.div>
 
         {/* Videos Grid */}

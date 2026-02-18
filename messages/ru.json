@@ -7,7 +7,8 @@
         "home": "Главная",
         "live": "Стрим",
         "videos": "Видео",
-        "support": "Поддержка"
+        "support": "Поддержка",
+        "magazine": "Magazine"
     },
     "Hero": {
         "scroll": "Листать"
@@ -54,5 +55,14 @@
     "Footer": {
         "rights": "© {year} Almir Santos Games — Все права защищены",
         "developedBy": "Developed by:"
+    },
+    "Magazine": {
+        "title": "SUPERUP JOGOS MAGAZINE",
+        "subtitle": "SuperUp Jogos — retro gaming magazine!",
+        "description": "SuperUp Jogos is a digital magazine about retro and classic games. Click the magazine to see the QR Code!",
+        "imageAlt": "SuperUp Jogos Magazine Cover",
+        "qrAlt": "SuperUp Jogos Magazine QR Code",
+        "clickToOpen": "👆 Click to see QR Code",
+        "clickToClose": "👆 Click to close"
     }
 }
