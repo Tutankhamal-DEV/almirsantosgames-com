@@ -1941,35 +1941,36 @@ function renderFPS(
     const gridScroll = t * 1.2;
     const vanishX = w / 2;
 
-    // Horizontal grid lines (perspective, scrolling forward)
-    const hLines = 50;
+    // Horizontal grid lines (perspective, scrolling toward viewer)
+    // Generate all perspective positions, then draw only those with enough spacing
+    const hLines = 25;
     const floorH = h - horizon;
     const gridSpeed = gridScroll * 0.12;
+    const minGap = 12; // minimum pixel gap between adjacent lines
 
-    const drawHLine = (scrollFract: number) => {
+    // Collect all line Y positions (sorted ascending = horizon → bottom)
+    const lineYs: number[] = [];
+    for (let i = 0; i < hLines; i++) {
+        const baseT = i / hLines;
+        const scrollFract = ((baseT + gridSpeed) % 1.0 + 1.0) % 1.0;
         const perspT = Math.pow(scrollFract, 1.8);
         const perspY = horizon + floorH * perspT;
-        if (perspY <= horizon + 1 || perspY >= h - 1) return;
-        const closeness = (perspY - horizon) / floorH;
-        const alpha = 0.06 + closeness * 0.55;
-        ctx.strokeStyle = `rgba(255,50,180,${alpha})`;
-        ctx.lineWidth = 0.5 + closeness * 1.8;
+        if (perspY > horizon + 1 && perspY < h - 1) lineYs.push(perspY);
+    }
+    lineYs.sort((a, b) => a - b);
+
+    // Draw lines enforcing minimum gap
+    let prevY = -Infinity;
+    for (const perspY of lineYs) {
+        if (perspY - prevY < minGap) continue;
+        prevY = perspY;
+        const depth = (perspY - horizon) / floorH;
+        ctx.strokeStyle = `rgba(255,50,180,${0.06 + depth * 0.55})`;
+        ctx.lineWidth = 0.5 + depth * 1.8;
         ctx.beginPath();
         ctx.moveTo(0, perspY);
         ctx.lineTo(w, perspY);
         ctx.stroke();
-    };
-
-    for (let i = 0; i < hLines; i++) {
-        const baseT = i / hLines;
-        const scrollFract = ((baseT + gridSpeed) % 1.0 + 1.0) % 1.0;
-        drawHLine(scrollFract);
-    }
-    // Extra lines near the wrap boundary (0↔1) to close the seam gap
-    for (let j = 1; j <= 4; j++) {
-        const seam = (gridSpeed % 1.0 + 1.0) % 1.0;
-        drawHLine(((seam + j * 0.015) % 1.0 + 1.0) % 1.0);
-        drawHLine(((seam - j * 0.015) % 1.0 + 1.0) % 1.0);
     }
 
     // Vertical grid lines (converging to vanishing point)
