@@ -42,6 +42,7 @@ const racingState = {
     playerLaneTimer: 0,
     steerSmooth: 0,
     opponents: [] as RacingOpponent[],
+    sortBuffer: [] as RacingOpponent[],
     curveOffset: 0,
     curveTarget: 0,
     curveTimer: 0,
@@ -1388,8 +1389,11 @@ function renderRacing(
         ctx.fillRect(cx + rw / 2 - 4, slY, 1, slLen);
     }
 
-    // ── OPPONENT CARS (sorted back to front) ──
-    const sortedOpps = [...RS.opponents].sort((a, b) => b.z - a.z);
+    // ── OPPONENT CARS (sorted back to front — reuses pre-allocated buffer) ──
+    const sortedOpps = RS.sortBuffer;
+    sortedOpps.length = 0;
+    for (let i = 0; i < RS.opponents.length; i++) sortedOpps.push(RS.opponents[i]);
+    sortedOpps.sort((a, b) => b.z - a.z);
     for (const opp of sortedOpps) {
         if (opp.z < 0 || opp.z > 1) continue;
         const progress = opp.z; // z maps to visual progress (1=horizon, 0=player)

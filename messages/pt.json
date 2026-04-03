@@ -8,7 +8,8 @@
         "live": "Ao Vivo",
         "videos": "Vídeos",
         "support": "Apoie",
-        "magazine": "Revista"
+        "magazine": "Revista",
+        "about": "Sobre"
     },
     "Hero": {
         "scroll": "Scroll"
@@ -64,5 +65,17 @@
     "Footer": {
         "rights": "© {year} Almir Santos Games — Todos os direitos reservados",
         "developedBy": "Developed by:"
+    },
+    "About": {
+        "title": "SOBRE MIM",
+        "text1a": "Salve galera, para quem não me conhece, me chamo Almir, para quem me conhece, também me chamo Almir kkkk, Sou Fortalezense, e por isso sempre busco manter o bom humor, que é uma característica nossa.",
+        "text1b": "Sou apaixonado por games desde os 6 anos de idade, quando joguei Super Mario Bros em um Dynavison 3 na casa do meu primo, e desde então, seguimos jogando até os dias atuais.",
+        "text2a": "Um fato curioso da minha história é o fato de que, na casa de minha avó, tinha uma locadora, e isso fez com que eu me envolvesse ainda mais essa paixão pelos games, seja jogando, seja cuidando da locadora, para que a mesma pudesse evoluir ainda mais.",
+        "text2b": "Ainda na infância, comecei a frequentar a feira da Parangaba aqui em Fortaleza (também conhecida como feira dos pássaros), sempre em busca de novos jogos, seja trocando ou comprando, e também em busca de consoles e acessórios, rotina que tive religiosamente aos domingos pela manhã durante boa parte da minha vida.",
+        "text3a": "Após o fechamento da locadora da minha avó, cheguei a montar uma Lan House, com alguns PCs e uma locadora, em casa mesmo, e foi uma experiência incrível receber todo mundo, não só como cliente, mas como amigos que, alguns, mantenho contato até os dias atuais, não só na minha locadora, como na locadora da casa de minha avó.",
+        "text3b": "Com o surgimento de conteúdos sobre games, em 2018, comecei a participar e fazer lives com meu amigo Pedrão, no canal dele, o \"Projeto 39\", e soube ali mesmo que queria fazer isso por muito tempo, pois, sempre jogava conversando com a galera, sempre tinha alguém do meu lado na locadora conversando comigo enquanto eu jogava, e percebi que fazendo as lives, era a forma que tinha encontrado de jogar, conversar com a galera e ainda fazer novos amigos.",
+        "text4a": "Um ano depois, de forma improvisada, pois sequer eu tinha Pc decente pra rodar o OBS de forma decente, comecei a fazer lives no meu canal pessoal, o Almir Jovi, mas como lá tinham alguns vídeos relacionados a música, percebi que tinha que criar um canal apenas de games.",
+        "text4b": "Foi aí que em 10 de abril de 2020, criei o canal Almir Santos, que curiosamente, teria outro nome, mas acabou que não utilizei o nome em questão, que seria, \"Gameplay com Rapadura\", partindo daí, seguimos trazendo alegria, resenha, sempre muita gameplay e o principal, fazendo amigos para vida, pois os games unem as pessoas, a através disso, quero sempre estar cercado das melhores pessoas que Deus colocar em meu caminho através do canal, e encontrando muitas dessas pessoas, seja nos eventos, seja fora deles!",
+        "text5a": "Aproveite bem o site que meu amigo Tutankhamal desenvolveu com muito carinho e como sempre falo, \"Sem perder tempo, vamos começar essa bagaça!\""
     }
 }

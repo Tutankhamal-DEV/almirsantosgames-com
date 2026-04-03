@@ -8,7 +8,8 @@
         "live": "ライブ",
         "videos": "動画",
         "support": "応援",
-        "magazine": "Magazine"
+        "magazine": "Magazine",
+        "about": "About"
     },
     "Hero": {
         "scroll": "スクロール"
@@ -64,5 +65,17 @@
         "qrAlt": "SuperUp Jogos Magazine QR Code",
         "clickToOpen": "👆 Click to see QR Code",
         "clickToClose": "👆 Click to close"
+    },
+    "About": {
+        "title": "ABOUT ME",
+        "text1a": "Hey guys, for those who don't know me, my name is Almir. For those who do, my name is also Almir hahaha! I'm from Fortaleza, and because of that, I always try to keep a good sense of humor, which is our trademark.",
+        "text1b": "I've been passionate about games since I was 6 years old, when I played Super Mario Bros on a Dynavision 3 at my cousin's house. Since then, we've kept playing to this day.",
+        "text2a": "A curious fact about my history is that my grandmother had a video game rental store in her house. This made me even more involved in my passion for games, whether I was playing or taking care of the store so it could grow.",
+        "text2b": "Still in my childhood, I started going to the Parangaba fair here in Fortaleza (also known as the birds fair), always looking for new games, trading or buying them, and also looking for consoles and accessories. I did this religiously on Sunday mornings for a good part of my life.",
+        "text3a": "After my grandmother's rental store closed, I even set up a Lan House with some PCs and a rental area right in my house. It was an incredible experience to welcome everyone, not just as customers, but as friends—some of whom I still keep in touch with today.",
+        "text3b": "When gaming content started to boom around 2018, I began participating and doing lives with my friend Pedrão on his channel, 'Projeto 39'. I knew right then I wanted to do this for a long time. I realized streaming was the way to play, chat with people, and make new friends simultaneously.",
+        "text4a": "A year later, improvising completely since I didn't even have a decent PC to run OBS, I started streaming on my personal channel, Almir Jovi. But since I had music videos there, I realized I needed a dedicated gaming channel.",
+        "text4b": "That's when, on April 10, 2020, I created the Almir Santos channel. Curiously, it was supposed to have another name: 'Gameplay com Rapadura'. From there on, we kept bringing joy, good chats, a lot of gameplay, and most importantly, making friends for life!",
+        "text5a": "Enjoy this website that my friend Tutankhamal developed with so much affection. And as I always say, 'Without wasting any time, let's get this going!'"
     }
 }

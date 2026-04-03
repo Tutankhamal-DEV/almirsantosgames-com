@@ -1738,6 +1738,420 @@ body {
   line-height: 1.7;
 }
 
+/* ═══════════════════════════════════════════════════════
+   ABOUT SECTION — 3D Magazine Flip-Book
+   ═══════════════════════════════════════════════════════ */
+
+.abt-viewport {
+  --abt-pw: clamp(170px, 30vw, 300px);
+  --abt-ph: clamp(240px, 42vw, 420px);
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(var(--abt-ph) + 100px);
+}
+
+/* ── Stage — positions + animates the whole magazine ── */
+.abt-stage {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Floating — magical hovering */
+.abt-stage.abt-floating {
+  animation: abt-float 7s ease-in-out infinite;
+}
+
+/* Settled but not yet opened — shift left */
+.abt-stage.abt-settled:not(.abt-opened) {
+  transform: translateX(calc(var(--abt-pw) * -0.25)) rotateY(5deg);
+}
+
+/* Settled and opened — back to center */
+.abt-stage.abt-settled.abt-opened {
+  transform: translateX(0);
+}
+
+/* ── Floating shadow ── */
+.abt-shadow {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+  animation: abt-shadow-pulse 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes abt-shadow-pulse {
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.4; }
+  30% { transform: translateX(-50%) scaleX(1.4); opacity: 0.15; }
+  60% { transform: translateX(-50%) scaleX(1.2); opacity: 0.25; }
+}
+
+/* ── Floating keyframes (fantasy, no glow) ── */
+@keyframes abt-float {
+  0%   { transform: translateY(0)    rotateX(4deg)   rotateZ(-1.5deg); }
+  14%  { transform: translateY(-12px) rotateX(0deg)   rotateZ(0.8deg); }
+  28%  { transform: translateY(-20px) rotateX(-3deg)  rotateZ(-0.6deg); }
+  42%  { transform: translateY(-14px) rotateX(2deg)   rotateZ(1.2deg); }
+  57%  { transform: translateY(-22px) rotateX(-1.5deg) rotateZ(-1deg); }
+  71%  { transform: translateY(-8px)  rotateX(3deg)   rotateZ(0.5deg); }
+  85%  { transform: translateY(-16px) rotateX(-2deg)  rotateZ(-0.4deg); }
+  100% { transform: translateY(0)    rotateX(4deg)   rotateZ(-1.5deg); }
+}
+
+/* ── 3D Perspective ── */
+.abt-perspective {
+  perspective: 2000px;
+  perspective-origin: center center;
+}
+
+/* ── Book container ── */
+.abt-book {
+  position: relative;
+  width: var(--abt-pw);
+  height: var(--abt-ph);
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When opened, shift book right so spine is at center */
+.abt-opened .abt-book {
+  transform: translateX(50%);
+}
+
+/* ── Leaf (page) ── */
+.abt-leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
+}
+
+.abt-leaf--flip {
+  transform: rotateY(-180deg);
+}
+
+/* ── Face (front / back of a leaf) ── */
+.abt-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 2px 10px 10px 2px;
+  border: 2px solid rgba(249, 115, 22, 0.25);
+  box-shadow:
+    3px 3px 15px rgba(0, 0, 0, 0.5),
+    -1px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.abt-face--back {
+  transform: rotateY(180deg);
+}
+
+/* Spine highlight on front faces */
+.abt-face--front::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Spine highlight on back faces (mirrored) */
+.abt-face--back::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(270deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Page base ── */
+.abt-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── Cover page ── */
+.abt-cover {
+  background:
+    linear-gradient(145deg, #1a0a0a 0%, #0d0d0d 40%, #1a0808 100%);
+  padding: 20px;
+  text-align: center;
+  gap: 12px;
+}
+
+.abt-cover-badge {
+  font-family: "Jersey 10", monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: #d4a017;
+  text-transform: uppercase;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  border-radius: 4px;
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+.abt-cover-title-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.abt-cover-title {
+  font-family: "Jersey 10", monospace;
+  font-size: clamp(22px, 4vw, 36px);
+  color: #fff;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+  line-height: 1.2;
+}
+
+.abt-cover-channel {
+  font-family: "Jersey 10", monospace;
+  font-size: clamp(10px, 1.8vw, 14px);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.2em;
+}
+
+.abt-cover-year {
+  font-family: "Jersey 10", monospace;
+  font-size: 10px;
+  color: rgba(212, 160, 23, 0.6);
+  letter-spacing: 0.15em;
+}
+
+/* ── Image pages ── */
+.abt-img {
+  background: #111;
+  padding: 0;
+}
+
+.abt-img img {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.abt-img-cover {
+  object-fit: cover;
+}
+
+.abt-img-contain {
+  object-fit: contain;
+  background: #080808;
+}
+
+/* ── Text pages ── */
+.abt-txt {
+  background:
+    linear-gradient(180deg, #f5f0e8 0%, #ede6d8 100%);
+  padding: 18px 16px 18px 22px;
+}
+
+/* Ruled lines */
+.abt-txt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0px,
+    transparent 20px,
+    rgba(180, 160, 140, 0.15) 20px,
+    rgba(180, 160, 140, 0.15) 21px);
+  pointer-events: none;
+}
+
+/* Margin line */
+.abt-txt::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  width: 1px;
+  height: 100%;
+  background: rgba(220, 80, 80, 0.2);
+  pointer-events: none;
+}
+
+.abt-txt-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+/* Custom scrollbar for text pages */
+.abt-txt-inner::-webkit-scrollbar {
+  width: 4px;
+}
+.abt-txt-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+.abt-txt-inner::-webkit-scrollbar-thumb {
+  background: rgba(180, 160, 140, 0.4);
+  border-radius: 2px;
+}
+
+.abt-txt-p {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  line-height: 1.55;
+  color: #2a2218;
+  text-align: justify;
+  margin: 0;
+  hyphens: auto;
+}
+
+/* ── Back cover ── */
+.abt-backcover {
+  background:
+    linear-gradient(145deg, #0d0d0d 0%, #1a0a0a 100%);
+  gap: 8px;
+}
+
+.abt-bc-emoji {
+  font-size: clamp(28px, 5vw, 48px);
+}
+
+.abt-bc-name {
+  font-family: "Jersey 10", monospace;
+  font-size: clamp(16px, 3vw, 24px);
+  color: #fff;
+  letter-spacing: 0.2em;
+}
+
+.abt-bc-sub {
+  font-family: "Jersey 10", monospace;
+  font-size: clamp(10px, 2vw, 14px);
+  color: rgba(249, 115, 22, 0.7);
+  letter-spacing: 0.3em;
+}
+
+/* ── Hint (under floating magazine) ── */
+.abt-hint {
+  font-family: "Jersey 10", monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 50px;
+  text-align: center;
+  letter-spacing: 0.08em;
+  animation: magazine-hint-pulse 2s ease-in-out infinite;
+}
+
+/* ── Navigation ── */
+.abt-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.abt-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(249, 115, 22, 0.4);
+  background: rgba(10, 10, 10, 0.8);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.abt-nav-btn:hover:not(:disabled) {
+  border-color: #f97316;
+  color: #fff;
+  background: rgba(249, 115, 22, 0.15);
+}
+
+.abt-nav-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.abt-nav-close {
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+.abt-nav-close:hover {
+  border-color: #dc2626 !important;
+  background: rgba(220, 38, 38, 0.15) !important;
+}
+
+.abt-nav-counter {
+  font-family: "Jersey 10", monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .abt-viewport {
+    --abt-pw: clamp(140px, 42vw, 200px);
+    --abt-ph: clamp(200px, 58vw, 280px);
+  }
+
+  .abt-txt {
+    padding: 14px 12px 14px 18px;
+  }
+
+  .abt-txt-p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .abt-cover-badge {
+    font-size: 8px;
+  }
+}
+
 /* ===== COMPONENT INLINE-STYLE MIGRATIONS ===== */
 
 /* ── CanvasBackground ── */

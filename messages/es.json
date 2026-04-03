@@ -8,7 +8,8 @@
         "live": "En Vivo",
         "videos": "Videos",
         "support": "Apoya",
-        "magazine": "Magazine"
+        "magazine": "Magazine",
+        "about": "Sobre Mí"
     },
     "Hero": {
         "scroll": "Scroll"
@@ -64,5 +65,17 @@
         "qrAlt": "SuperUp Jogos Magazine QR Code",
         "clickToOpen": "👆 Click to see QR Code",
         "clickToClose": "👆 Click to close"
+    },
+    "About": {
+        "title": "SOBRE MÍ",
+        "text1a": "Hola chicos, para los que no me conocen, me llamo Almir. ¡Para los que ya me conocen, también me llamo Almir jajaja! Soy de Fortaleza, y por eso siempre trato de mantener el buen humor, que es nuestra marca registrada.",
+        "text1b": "Soy un apasionado de los videojuegos desde los 6 años, cuando jugaba Super Mario Bros en un Dynavision 3 en casa de mi primo. Desde entonces, hemos seguido jugando hasta el día de hoy.",
+        "text2a": "Un hecho curioso de mi historia es que en casa de mi abuela había una tienda de alquiler de videojuegos. Esto me involucró aún más en mi pasión por los juegos, ya fuera jugando o cuidando la tienda para que creciera.",
+        "text2b": "Aún en mi infancia, empecé a ir a la feria de Parangaba aquí en Fortaleza, siempre en busca de nuevos juegos, cambiándolos o comprándolos, y también buscando consolas y accesorios. Hacía esto religiosamente los domingos por la mañana durante buena parte de mi vida.",
+        "text3a": "Después de que la tienda de mi abuela cerrara, incluso monté un cibercafé con algunos PCs y un área de alquiler en mi propia casa. Fue una experiencia increíble recibir a todos, no solo como clientes, sino como amigos.",
+        "text3b": "Con el auge de la creación de contenido en 2018, comencé a participar y hacer directos con mi amigo Pedrão en su canal, 'Projeto 39'. Supe allí mismo que quería hacer esto por mucho tiempo. Me di cuenta de que hacer streams era la forma de jugar, charlar con la gente y hacer nuevos amigos a la vez.",
+        "text4a": "Un año después, improvisando porque ni siquiera tenía un PC decente para ejecutar OBS, comencé a hacer directos en mi canal personal, Almir Jovi. Pero como allí tenía videos musicales, me di cuenta de que necesitaba un canal exclusivo para juegos.",
+        "text4b": "Fue entonces cuando, el 10 de abril de 2020, creé el canal Almir Santos. Curiosamente, iba a tener otro nombre: 'Gameplay com Rapadura'. A partir de ahí, seguimos trayendo alegría, buenas charlas, muchas partidas y, lo más importante, ¡haciendo amigos para toda la vida!",
+        "text5a": "Disfruten de esta web que mi amigo Tutankhamal ha desarrollado con mucho cariño. Y como siempre digo: 'Sin perder el tiempo, ¡vamos a empezar esta locura!'"
     }
 }

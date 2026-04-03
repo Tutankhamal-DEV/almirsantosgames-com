@@ -7,9 +7,9 @@ import { useTranslations } from "next-intl";
 
 /* ── Hardcoded fallback data (source of truth from YouTube About page) ── */
 const FALLBACK = {
-  subscribers: "6,1K",
-  views: "700 mil",
-  videos: "1.300",
+  subscribers: "7,1K",
+  views: "701 mil",
+  videos: "1.500",
 };
 
 /* ── Channel anniversary ───────────────────────────── */

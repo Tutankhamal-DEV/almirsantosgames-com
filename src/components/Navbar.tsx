@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
-import { Home, Radio, Play, Heart, Menu, X, BookOpen } from "lucide-react";
+import { Home, Radio, Play, Heart, Menu, X, BookOpen, User } from "lucide-react";
 import { useLiveStatus } from "@/lib/LiveContext";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
@@ -42,7 +42,7 @@ export default function Navbar() {
 
   /* ── Scrollspy — tracks which section is in viewport ── */
   useEffect(() => {
-    const SECTION_IDS = ["hero", "live", "videos", "livepix", "magazine"];
+    const SECTION_IDS = ["hero", "about", "live", "videos", "livepix", "magazine"];
     const observers: IntersectionObserver[] = [];
 
     SECTION_IDS.forEach((id) => {
@@ -63,6 +63,7 @@ export default function Navbar() {
 
   const NAV_LINKS = useMemo(() => [
     { href: "#hero" as const, label: t("home"), icon: Home, id: "home" },
+    { href: "#about" as const, label: t("about"), icon: User, id: "about" },
     { href: "#live" as const, label: t("live"), icon: Radio, id: "live" },
     { href: "#videos" as const, label: t("videos"), icon: Play, id: "videos" },
     {

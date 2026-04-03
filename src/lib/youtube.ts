@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 
 const CHANNEL_ID = "UCRDH3LQQQRrEs1UnGP7fBuw";
-const RSS_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+const PLAYLIST_ID = "UURDH3LQQQRrEs1UnGP7fBuw";
+const RSS_URL = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
 const RSS2JSON_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
 
 export interface YouTubeVideo {

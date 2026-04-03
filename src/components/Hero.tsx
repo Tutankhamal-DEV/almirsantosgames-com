@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { Youtube, Instagram } from "lucide-react";
@@ -9,12 +9,13 @@ import RetroButton from "./RetroButton";
 
 /* ── Catchphrases shown on logo click ── */
 const CATCHPHRASES = [
-  "Enfia o Dedo!",
-  "AÍDENTO",
-  "A FULEPA",
-  "ETA OREIA LASCADA",
-  "CADE O HOMEM MAL",
-  "MEU NOME É ALMIR E EU NÃO TÔ NEM AÍ, SÓ QUERO JOGAR MEU VIDEOGAME",
+  "Vai comendo enquanto o arroz seca!",
+  "Tá pensando que mão nos beiço é batom?",
+  "Afulepa",
+  "Dá o like, enfia o dedo!",
+  "Ieeeiiiiiii",
+  "Vamos lascar a oreia dele",
+  "Vamo Laraaaa",
 ];
 
 let phraseIndex = 0;
@@ -25,6 +26,15 @@ export default function Hero() {
     { id: number; text: string; x: number; y: number }[]
   >([]);
   const [avifLoaded, setAvifLoaded] = useState(false);
+  const timersRef = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  // Cleanup all pending timers on unmount
+  useEffect(() => {
+    return () => {
+      timersRef.current.forEach(clearTimeout);
+      timersRef.current.clear();
+    };
+  }, []);
 
   const handleLogoClick = useCallback(() => {
     window.dispatchEvent(new Event("toggle-canvas-scene"));
@@ -40,10 +50,12 @@ export default function Hero() {
     const id = Date.now() + Math.random();
     setBubbles((prev) => [...prev, { id, text, x, y }]);
 
-    // Auto-remove after animation
-    setTimeout(() => {
+    // Auto-remove after animation (tracked for cleanup)
+    const timer = setTimeout(() => {
       setBubbles((prev) => prev.filter((b) => b.id !== id));
+      timersRef.current.delete(timer);
     }, 2500);
+    timersRef.current.add(timer);
   }, []);
 
   return (
@@ -81,6 +93,8 @@ export default function Hero() {
             alt="Almir Santos Games Logo"
             width={500}
             height={500}
+            priority
+            loading="eager"
             className={`w-[180px] sm:w-[260px] md:w-[340px] h-auto select-none pointer-events-none ${avifLoaded ? "" : "opacity-0 absolute inset-0"}`}
             unoptimized
             draggable={false}
